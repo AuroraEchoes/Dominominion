@@ -10,7 +10,7 @@ func _init(level: Level) -> void:
 	level.simulation_started.connect(_on_simulation_started)
 
 func clear():
-	for entity in cell_entities:
+	for entity in cell_entities.duplicate():
 		if entity.resource.pickable:
 			entity.destroy()
 

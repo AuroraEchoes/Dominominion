@@ -40,7 +40,7 @@ func enter_expired():
 	if cell_highlight_group != null:
 		cell_highlight_group.destroy()
 		cell_highlight_group = null
-	modulate.a = 0.0
+	modulate.a = 0.2
 
 func enter_dormant():
 	modulate.a = 1.0

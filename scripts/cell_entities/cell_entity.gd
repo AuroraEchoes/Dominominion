@@ -111,7 +111,7 @@ func move_to_cell(new_cell: Vector2i):
 
 func destroy():
 	manager.unregister(self)
-	manager.level.spawned.set_cell(cell)
+	manager.level.spawned.erase_cell(cell)
 	queue_free()
 
 func rotate_direction():

@@ -1,4 +1,4 @@
-class_name CastedStraightPath extends Object
+class_name CastedStraightPath extends RefCounted
 
 var caller: CellEntity
 var max_dist: int

@@ -1,4 +1,4 @@
-class_name Charge extends Object
+class_name Charge extends RefCounted
 
 signal finished
 

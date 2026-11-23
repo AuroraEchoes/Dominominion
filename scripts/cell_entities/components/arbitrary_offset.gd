@@ -1,4 +1,4 @@
-class_name ArbitraryOffset extends Object
+class_name ArbitraryOffset extends RefCounted
 
 var caller: CellEntity
 var offset: Vector2i

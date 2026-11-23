@@ -1,4 +1,4 @@
-class_name Fuse extends Object
+class_name Fuse extends RefCounted
 
 signal finished
 

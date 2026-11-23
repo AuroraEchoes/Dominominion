@@ -1,4 +1,4 @@
-class_name ItemShake extends Object
+class_name ItemShake extends RefCounted
 
 func _init(node: Control, duration: float, strength: float, speed: float) -> void:
 	var base_pos = node.position

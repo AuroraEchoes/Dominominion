@@ -94,7 +94,7 @@ func drop_at_global_pos(screen_pos: Vector2, data):
 	if data["source"] == "world":
 		var node: CellEntity = data["node"]
 		node.move_to_cell(tile)
-	else:
+	elif data["source"] == "inventory":
 		spawned.set_cell(tile, item_resource.get_atlas_source_id(), Vector2i.ZERO, item_resource.get_atlas_tile_id())
 		InventoryManager.drop_item(item)
 

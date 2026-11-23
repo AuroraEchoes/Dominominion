@@ -1,4 +1,4 @@
-class_name AreaOfEffect extends Object
+class_name AreaOfEffect extends RefCounted
 
 var caller: CellEntity
 var radius: int
