@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive.png" id="1_tg2ke"]
 [ext_resource type="PackedScene" uid="uid://c7ug86ewvvo8r" path="res://scenes/items/explosive.tscn" id="2_4lqu8"]
+[ext_resource type="PackedScene" uid="uid://c38k1mmcutb45" path="res://scenes/cell_entities/SmallExplosive.tscn" id="3_euqug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lqu8"]
 texture = ExtResource("1_tg2ke")
@@ -10,6 +11,7 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tg2ke"]
 scenes/1/scene = ExtResource("2_4lqu8")
+scenes/2/scene = ExtResource("3_euqug")
 
 [resource]
 tile_size = Vector2i(8, 8)

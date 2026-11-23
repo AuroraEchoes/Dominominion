@@ -21,6 +21,10 @@ LocalLevelManager="*uid://iev6ystwvj67"
 InventoryManager="*uid://3pmh5loar5u"
 ItemManager="*uid://c1ghi5tye6nix"
 
+[debug]
+
+gdscript/warnings/shadowed_variable=0
+
 [display]
 
 window/stretch/mode="canvas_items"

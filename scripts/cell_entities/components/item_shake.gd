@@ -1,5 +1,4 @@
-extends Object
-class_name ItemShake
+class_name ItemShake extends Object
 
 func _init(node: Node2D, duration: float, strength: float, speed: float) -> void:
 	var base_pos = node.position

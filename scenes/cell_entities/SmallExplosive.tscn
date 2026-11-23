@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c38k1mmcutb45"]
+
+[ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive.png" id="1_rmjtj"]
+
+[node name="SmallExplosive" type="Sprite2D" unique_id=219919479]
+texture_filter = 1
+texture = ExtResource("1_rmjtj")

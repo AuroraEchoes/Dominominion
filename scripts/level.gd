@@ -17,6 +17,8 @@ var simulation: LevelSimulation
 var targets: Array[Vector2i]
 var triggers: Array[Vector2i]
 
+var cell_entity_manager: CellEntityManager = CellEntityManager.new(self)
+
 func _ready() -> void:
 	LocalLevelManager.set_active_level(self)
 	for cell in special.get_used_cells():

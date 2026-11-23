@@ -15,6 +15,6 @@ name = "C4"
 texture = ExtResource("2_l5r04")
 item_effect = SubResource("Resource_y87vu")
 atlas_source_id = 1
-atlas_tile_id = 1
+atlas_tile_id = 2
 fuse_time = 1.5
 metadata/_custom_type_script = "uid://dadxgl4ypcrhe"
