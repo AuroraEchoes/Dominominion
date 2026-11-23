@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bboevtx5lo0un"]
 
-[ext_resource type="Texture2D" uid="uid://yhcbh0yosvgw" path="res://assets/sprites/target.png" id="1_rbmyj"]
+[ext_resource type="Texture2D" uid="uid://c4v2ka7dv5mxi" path="res://assets/sprites/fantasy/tile_0057.png" id="1_lomc1"]
 [ext_resource type="Script" uid="uid://dwisgqthfi1js" path="res://scripts/cell_entities/instances/target_cell_entity.gd" id="2_ckgu4"]
-[ext_resource type="Resource" uid="uid://wiyhjtpmu71r" path="res://resources/items/Target.tres" id="3_ggwhm"]
+[ext_resource type="Resource" uid="uid://wiyhjtpmu71r" path="res://resources/items/level/Target.tres" id="3_ggwhm"]
 [ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_lomc1"]
 
 [node name="Target" type="TextureRect" unique_id=783731255]
@@ -11,7 +11,7 @@ offset_left = -4.0
 offset_top = -4.0
 offset_right = 4.0
 offset_bottom = 4.0
-texture = ExtResource("1_rbmyj")
+texture = ExtResource("1_lomc1")
 script = ExtResource("2_ckgu4")
 resource = ExtResource("3_ggwhm")
 tooltip_scene = ExtResource("4_lomc1")

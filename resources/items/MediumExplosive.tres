@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cxk758f1m5027"]
+
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="1_0dlwt"]
+[ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="2_vg3in"]
+[ext_resource type="Script" uid="uid://dj3fer6e05g87" path="res://scripts/resources/item_resource.gd" id="3_ngqqm"]
+[ext_resource type="Texture2D" uid="uid://28vvrycwqvtr" path="res://assets/sprites/explosive_medium.png" id="4_0dlwt"]
+
+[sub_resource type="Resource" id="Resource_jda57"]
+script = ExtResource("1_0dlwt")
+icon = ExtResource("2_vg3in")
+color = Color(1, 0.443684, 0.37509552, 1)
+text = "AoE"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"
+
+[resource]
+script = ExtResource("3_ngqqm")
+name = "Medium Explosive"
+texture = ExtResource("4_0dlwt")
+pickable = true
+atlas_source_id = 1
+atlas_tile_id = 1
+description = "Bigger boom!"
+icons = Array[ExtResource("1_0dlwt")]([SubResource("Resource_jda57")])

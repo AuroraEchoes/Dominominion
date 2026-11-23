@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CollateralDamage"
-run/main_scene="uid://df8r4vt4m3m8t"
+run/main_scene="uid://c21von1qssagi"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 LocalLevelManager="*uid://iev6ystwvj67"
 InventoryManager="*uid://3pmh5loar5u"
 ItemManager="*uid://bcm5tf3i8ftb3"
+GameManager="*uid://bvstiso02etit"
 
 [debug]
 

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://bvkmlt1y8dfx6"]
+
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="1_23blw"]
+[ext_resource type="Script" uid="uid://dj3fer6e05g87" path="res://scripts/resources/item_resource.gd" id="2_rhrbt"]
+[ext_resource type="Texture2D" uid="uid://dvrfldmtlplg" path="res://assets/sprites/fantasy/tile_0070.png" id="3_rhrbt"]
+
+[resource]
+script = ExtResource("2_rhrbt")
+name = "Sword"
+texture = ExtResource("3_rhrbt")
+pickable = true
+atlas_source_id = 1
+atlas_tile_id = 4
+description = "Stabby Stabby in Straighty Liney"
+metadata/_custom_type_script = "uid://dj3fer6e05g87"

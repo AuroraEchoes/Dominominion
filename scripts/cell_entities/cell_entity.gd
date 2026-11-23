@@ -1,6 +1,7 @@
 class_name CellEntity extends TextureRect
 
 signal cell_changed
+signal direction_changed
 
 enum State {
 	DORMANT,
@@ -11,11 +12,14 @@ enum State {
 
 @export var resource: ItemResource
 @export var tooltip_scene: PackedScene
+@export var base_rotation: float
+@export var base_direction: Vector2i = Vector2i.UP
 
 var cell: Vector2i
 var state: State = State.DORMANT
 var manager: CellEntityManager
 var hovered: bool = false
+var direction: Vector2i
 
 func _ready() -> void:
 	var level := LocalLevelManager.get_active_level()
@@ -26,6 +30,12 @@ func _ready() -> void:
 
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
+
+	offset_transform_enabled = true
+	direction = base_direction
+	var angle = -Vector2(direction).angle_to(Vector2.UP) + deg_to_rad(base_rotation)
+	offset_transform_rotation = angle
+	direction_changed.emit()
 
 	enter_dormant()
 
@@ -104,8 +114,23 @@ func destroy():
 	manager.level.spawned.set_cell(cell)
 	queue_free()
 
+func rotate_direction():
+	if direction == Vector2i.RIGHT:
+		direction = Vector2i.DOWN
+	elif direction == Vector2i.DOWN:
+		direction = Vector2i.LEFT
+	elif direction == Vector2i.LEFT:
+		direction = Vector2i.UP
+	elif direction == Vector2i.UP:
+		direction = Vector2i.RIGHT
+	else:
+		direction = Vector2i.UP
+	var angle = -Vector2(direction).angle_to(Vector2.UP) + deg_to_rad(base_rotation)
+	offset_transform_rotation = angle
+	direction_changed.emit()
+
 func _get_drag_data(at_position: Vector2) -> Variant:
-	if !resource.pickable:
+	if !resource.pickable || manager.level.state != Level.LevelState.DORMANT:
 		return null
 	set_drag_preview(_get_drag_preview())
 	modulate.a = 0.4
@@ -139,4 +164,8 @@ func _make_custom_tooltip(for_text: String) -> Object:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && hovered:
-		click()
+		var mouse_event := event as InputEventMouseButton
+		if mouse_event.button_index == MOUSE_BUTTON_RIGHT && mouse_event.pressed:
+			rotate_direction()
+		else:
+			click()

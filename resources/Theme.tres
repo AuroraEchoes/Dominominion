@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://c8e3ixn3hpywg" path="res://assets/fonts/PixelifySans-Bold.ttf" id="1_cjwly"]
 [ext_resource type="FontFile" uid="uid://e0hwiilxyquq" path="res://assets/Iceberg-Regular.ttf" id="1_jaexg"]
+[ext_resource type="FontFile" uid="uid://c5peefpoalxn1" path="res://assets/fonts/PixelifySans-Medium.ttf" id="3_cjwly"]
 
 [resource]
 Control/fonts/font = ExtResource("1_cjwly")
@@ -9,3 +10,4 @@ HeaderLarge/font_sizes/font_size = 28
 HeaderLarge/fonts/font = ExtResource("1_jaexg")
 HeaderSmall/font_sizes/font_size = 28
 Label/fonts/Text = null
+RichTextLabel/fonts/normal_font = ExtResource("3_cjwly")

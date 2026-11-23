@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://svurf3024m5h"]
+
+[ext_resource type="Texture2D" uid="uid://dvrfldmtlplg" path="res://assets/sprites/fantasy/tile_0070.png" id="1_8mwr8"]
+[ext_resource type="Script" uid="uid://24dkrirxgff1" path="res://scripts/cell_entities/instances/sword_cell_entity.gd" id="2_sxjfy"]
+[ext_resource type="Resource" uid="uid://bvkmlt1y8dfx6" path="res://resources/items/Sword.tres" id="3_uvo07"]
+[ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_atdem"]
+
+[node name="Sword" type="TextureRect" unique_id=1750750630]
+texture_filter = 1
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+pivot_offset = Vector2(4, 4)
+offset_transform_enabled = true
+texture = ExtResource("1_8mwr8")
+script = ExtResource("2_sxjfy")
+charge_speed = 50.0
+max_charge_dist = 12
+resource = ExtResource("3_uvo07")
+tooltip_scene = ExtResource("4_atdem")
+base_rotation = -45.0

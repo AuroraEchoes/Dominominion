@@ -2,16 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://cuskyl4jbhvjf" path="res://scenes/cell_entities/Trigger.tscn" id="1_euqug"]
 [ext_resource type="PackedScene" uid="uid://bboevtx5lo0un" path="res://scenes/cell_entities/Target.tscn" id="2_558k6"]
+[ext_resource type="PackedScene" uid="uid://iyx62lak6318" path="res://scenes/cell_entities/MediumExplosive.tscn" id="3_5i73j"]
 [ext_resource type="PackedScene" uid="uid://c38k1mmcutb45" path="res://scenes/cell_entities/SmallExplosive.tscn" id="3_euqug"]
+[ext_resource type="PackedScene" uid="uid://c30pftl46wubx" path="res://scenes/cell_entities/CivilianHouse.tscn" id="3_omm62"]
+[ext_resource type="PackedScene" uid="uid://uy6p8esh4vjc" path="res://scenes/cell_entities/LargeExplosive.tscn" id="5_omm62"]
+[ext_resource type="PackedScene" uid="uid://svurf3024m5h" path="res://scenes/cell_entities/Sword.tscn" id="7_v12cc"]
+[ext_resource type="PackedScene" uid="uid://7cnp8a6bdf71" path="res://scenes/cell_entities/Bow.tscn" id="8_x0mjt"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5i73j"]
 resource_name = "Obstructions"
 scenes/1/scene = ExtResource("1_euqug")
 scenes/2/scene = ExtResource("2_558k6")
+scenes/3/scene = ExtResource("3_omm62")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tg2ke"]
 resource_name = "Items"
+scenes/1/scene = ExtResource("3_5i73j")
 scenes/2/scene = ExtResource("3_euqug")
+scenes/3/scene = ExtResource("5_omm62")
+scenes/4/scene = ExtResource("7_v12cc")
+scenes/5/scene = ExtResource("8_x0mjt")
 
 [resource]
 tile_size = Vector2i(8, 8)

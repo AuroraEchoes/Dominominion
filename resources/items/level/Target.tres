@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://wiyhjtpmu71r"]
+
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="1_jb0vj"]
+[ext_resource type="Script" uid="uid://dj3fer6e05g87" path="res://scripts/resources/item_resource.gd" id="1_uo84w"]
+[ext_resource type="Texture2D" uid="uid://dw3tl1htf08v1" path="res://assets/sprites/fantasy/tile_0117.png" id="3_vnh31"]
+
+[resource]
+script = ExtResource("1_uo84w")
+name = "Target"
+texture = ExtResource("3_vnh31")
+atlas_tile_id = 2
+description = "Destroy this"

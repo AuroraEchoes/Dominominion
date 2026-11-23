@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c21von1qssagi"]
 
 [ext_resource type="Theme" uid="uid://c4nhh3lk4ipni" path="res://resources/Theme.tres" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://cdig1ixhc46cq" path="res://scripts/ui/buttons/load_level_button.gd" id="2_6jbdy"]
+[ext_resource type="PackedScene" uid="uid://b6lpww2tdvfix" path="res://scenes/levels/Level1.tscn" id="3_iwbf0"]
 
 [node name="MainMenu" type="Control" unique_id=553133462]
 layout_mode = 3
@@ -10,10 +12,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="." unique_id=594250352]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1428795122]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=594250352]
+layout_mode = 2
 theme = ExtResource("1_l6cm7")
 theme_type_variation = &"HeaderLarge"
-text = "Precision Operator"
+text = "guh i dunno its a game sure is prolly"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=427752113]
+layout_mode = 2
+script = ExtResource("2_6jbdy")
+level = ExtResource("3_iwbf0")

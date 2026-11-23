@@ -25,6 +25,6 @@ func _calculate_affected_cells() -> Array[Vector2i]:
 	for x in range(center.x - radius, center.x + radius + 1):
 		for y in range(center.y - radius, center.y + radius + 1):
 			var cell = Vector2i(x, y)
-			if center.distance_to(cell) <= radius:
+			if center.distance_to(cell) <= radius + 0.1:
 				cells.append(cell)
 	return cells

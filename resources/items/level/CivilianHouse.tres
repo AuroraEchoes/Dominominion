@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://cybw3r4ovknli"]
+
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="1_he2s6"]
+[ext_resource type="Texture2D" uid="uid://1traa7bd2hje" path="res://assets/sprites/tilemap_packed.png" id="2_hfem2"]
+[ext_resource type="Script" uid="uid://dj3fer6e05g87" path="res://scripts/resources/item_resource.gd" id="2_r5ksb"]
+[ext_resource type="Texture2D" uid="uid://c4v2ka7dv5mxi" path="res://assets/sprites/fantasy/tile_0057.png" id="4_hfem2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfem2"]
+atlas = ExtResource("2_hfem2")
+region = Rect2(32, 24, 8, 8)
+
+[sub_resource type="Resource" id="Resource_r5ksb"]
+script = ExtResource("1_he2s6")
+icon = SubResource("AtlasTexture_hfem2")
+color = Color(0.3372549, 0.23137255, 0.29803923, 1)
+text = "Civilian"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"
+
+[resource]
+script = ExtResource("2_r5ksb")
+name = "Civilian House"
+texture = ExtResource("4_hfem2")
+atlas_tile_id = 3
+description = "Civilian house. Protect at all costs!"
+icons = Array[ExtResource("1_he2s6")]([SubResource("Resource_r5ksb")])
+metadata/_custom_type_script = "uid://dj3fer6e05g87"

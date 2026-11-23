@@ -2,7 +2,8 @@ class_name CellHighlighter extends Node2D
 
 enum HighlightType {
 	INFO,
-	WARNING
+	WARNING,
+	POSITIVE
 }
 
 @export var parent_tilemap: TileMapLayer
@@ -13,6 +14,10 @@ func create_highlight_group(cells: Array[Vector2i], type: HighlightType) -> High
 	var group := HighlightGroup.new(cells, type, tile_set, tile_atlas_coords)
 	add_child(group)
 	return group
+
+func clear():
+	for child in get_children():
+		child.queue_free()
 
 class HighlightGroup extends TileMapLayer:
 	const PULSE_SPEED = 3.0

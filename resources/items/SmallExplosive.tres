@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="1_q8rnf"]
 [ext_resource type="Script" uid="uid://dj3fer6e05g87" path="res://scripts/resources/item_resource.gd" id="1_r1ir4"]
 [ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="2_7cp0b"]
-[ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive.png" id="2_d7wxu"]
+[ext_resource type="Texture2D" uid="uid://bqate0dfchjqj" path="res://assets/sprites/explosive_small.png" id="4_q8rnf"]
 
 [sub_resource type="Resource" id="Resource_jda57"]
 script = ExtResource("1_q8rnf")
@@ -15,7 +15,7 @@ metadata/_custom_type_script = "uid://dk0jwj2tvygi7"
 [resource]
 script = ExtResource("1_r1ir4")
 name = "Small Explosive"
-texture = ExtResource("2_d7wxu")
+texture = ExtResource("4_q8rnf")
 pickable = true
 atlas_source_id = 1
 atlas_tile_id = 2

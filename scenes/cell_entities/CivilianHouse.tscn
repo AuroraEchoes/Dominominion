@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c30pftl46wubx"]
+
+[ext_resource type="Texture2D" uid="uid://dw3tl1htf08v1" path="res://assets/sprites/fantasy/tile_0117.png" id="1_sb7g3"]
+[ext_resource type="Script" uid="uid://bj85xfcadsxcj" path="res://scripts/cell_entities/instances/civilian_cell_entity.gd" id="2_uusyq"]
+[ext_resource type="Resource" uid="uid://cybw3r4ovknli" path="res://resources/items/level/CivilianHouse.tres" id="3_yuyi1"]
+[ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_2uvf2"]
+
+[node name="Target" type="TextureRect" unique_id=783731255]
+texture_filter = 1
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+texture = ExtResource("1_sb7g3")
+script = ExtResource("2_uusyq")
+resource = ExtResource("3_yuyi1")
+tooltip_scene = ExtResource("4_2uvf2")

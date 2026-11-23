@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://uy6p8esh4vjc"]
+
+[ext_resource type="Texture2D" uid="uid://sgcmmr62pu4e" path="res://assets/sprites/explosive_large.png" id="1_2t1vu"]
+[ext_resource type="Script" uid="uid://bcjbfkykrllhq" path="res://scripts/cell_entities/instances/explosive_cell_entity.gd" id="2_tluge"]
+[ext_resource type="Resource" uid="uid://d4nmb8s3x6viy" path="res://resources/items/LargeExplosive.tres" id="3_2t1vu"]
+[ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_t3sn8"]
+
+[node name="LargeExplosive" type="TextureRect" unique_id=291916684]
+texture_filter = 1
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+texture = ExtResource("1_2t1vu")
+script = ExtResource("2_tluge")
+fuse_length = 1.75
+radius = 3
+resource = ExtResource("3_2t1vu")
+tooltip_scene = ExtResource("4_t3sn8")

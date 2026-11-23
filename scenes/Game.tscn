@@ -1,19 +1,28 @@
 [gd_scene format=3 uid="uid://df8r4vt4m3m8t"]
 
-[ext_resource type="PackedScene" uid="uid://b5vwmquhomm0g" path="res://scenes/levels/Level.tscn" id="1_400sg"]
 [ext_resource type="Script" uid="uid://4ssc12qg85x1" path="res://scripts/ui/drop_handler.gd" id="2_g4kob"]
 [ext_resource type="Script" uid="uid://m7ndlx86gm3x" path="res://scripts/ui/inventory_ui_manager.gd" id="3_qy1jj"]
 [ext_resource type="PackedScene" uid="uid://bhlrfqu80gk26" path="res://scenes/ui/InventoryItem.tscn" id="4_400sg"]
 [ext_resource type="Theme" uid="uid://c4nhh3lk4ipni" path="res://resources/Theme.tres" id="5_mcffj"]
 [ext_resource type="Script" uid="uid://e3a772matugp" path="res://scripts/ui/targets_eliminated_label.gd" id="6_2rd6h"]
-[ext_resource type="Script" uid="uid://n08kgkkj4lay" path="res://scripts/ui/play_button.gd" id="7_7ua8r"]
+[ext_resource type="Texture2D" uid="uid://b6plc04j8pm4o" path="res://assets/sprites/icons/delete.png" id="7_3xj3m"]
+[ext_resource type="Script" uid="uid://n08kgkkj4lay" path="res://scripts/ui/buttons/play_button.gd" id="7_7ua8r"]
+[ext_resource type="Script" uid="uid://dc2ip8mnj6erm" path="res://scripts/ui/buttons/delete_button.gd" id="7_r7sob"]
+[ext_resource type="Script" uid="uid://db7dmbxntl1ae" path="res://scripts/ui/inventory_button_controller.gd" id="7_y5y3l"]
 [ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="8_r7sob"]
+[ext_resource type="Script" uid="uid://ddc5aultg8pe5" path="res://scripts/ui/buttons/pause_button.gd" id="10_2rd6h"]
+[ext_resource type="Texture2D" uid="uid://bkqcctf802uh2" path="res://assets/sprites/icons/pause.png" id="10_mcffj"]
+[ext_resource type="Texture2D" uid="uid://cyseprljbyf1h" path="res://assets/sprites/icons/restart.png" id="11_2rd6h"]
+[ext_resource type="Script" uid="uid://bp5h2f6jmvq70" path="res://scripts/ui/buttons/reset_button.gd" id="11_mcffj"]
+[ext_resource type="Script" uid="uid://b3n1e7p76iauv" path="res://scripts/ui/level_failed_panel.gd" id="16_y5y3l"]
+[ext_resource type="Script" uid="uid://uni635rnn75q" path="res://scripts/ui/level_succeeded_panel.gd" id="17_vjgi4"]
+[ext_resource type="Script" uid="uid://b8hun3vdh813" path="res://scripts/ui/buttons/main_menu_button.gd" id="18_45i86"]
+[ext_resource type="Texture2D" uid="uid://om4eqvhpau2e" path="res://assets/sprites/icons/menu.png" id="18_kyk2p"]
 
 [node name="Game" type="Node2D" unique_id=1922569510]
 
-[node name="Level" parent="." unique_id=104788486 instance=ExtResource("1_400sg")]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=21714096]
+process_mode = 3
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=1149621283]
 layout_mode = 3
@@ -91,14 +100,27 @@ theme_override_constants/margin_bottom = 12
 custom_minimum_size = Vector2(0, 91)
 layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel" unique_id=1807733565]
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel" unique_id=255986204 node_paths=PackedStringArray("dormant_button_container", "simulating_button_container")]
+layout_mode = 2
+script = ExtResource("7_y5y3l")
+dormant_button_container = NodePath("DormantButtons")
+simulating_button_container = NodePath("SimulatingButtons")
+
+[node name="SimulatingButtons" type="HBoxContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons" unique_id=605808682]
+visible = false
+layout_mode = 2
+
+[node name="PauseButton" type="Button" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/SimulatingButtons" unique_id=661399890 node_paths=PackedStringArray("texture_rect")]
 custom_minimum_size = Vector2(96, 64)
 layout_mode = 2
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("7_7ua8r")
+script = ExtResource("10_2rd6h")
+texture_rect = NodePath("MarginContainer/TextureRect")
+pause_icon = ExtResource("10_mcffj")
+play_button = ExtResource("8_r7sob")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/PlayButton" unique_id=237151914]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/SimulatingButtons/PauseButton" unique_id=222832485]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,10 +132,215 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/PlayButton/MarginContainer" unique_id=1743791779]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/SimulatingButtons/PauseButton/MarginContainer" unique_id=999077045]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_mcffj")
+stretch_mode = 5
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/SimulatingButtons" unique_id=207694643]
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("11_mcffj")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/SimulatingButtons/ResetButton" unique_id=328919448]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/SimulatingButtons/ResetButton/MarginContainer" unique_id=31477628]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("11_2rd6h")
+stretch_mode = 5
+
+[node name="DormantButtons" type="HBoxContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons" unique_id=989013785]
+layout_mode = 2
+
+[node name="DeleteButton" type="Button" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/DormantButtons" unique_id=2069361143]
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_r7sob")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/DormantButtons/DeleteButton" unique_id=883389266]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/DormantButtons/DeleteButton/MarginContainer" unique_id=800965946]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_3xj3m")
+stretch_mode = 5
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/DormantButtons" unique_id=1807733565]
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_7ua8r")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/DormantButtons/PlayButton" unique_id=237151914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/Buttons/DormantButtons/PlayButton/MarginContainer" unique_id=1743791779]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("8_r7sob")
+stretch_mode = 5
+
+[node name="FailedPanel" type="PanelContainer" parent="CanvasLayer/UI" unique_id=1287355828]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -10.0
+offset_right = 0.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_y5y3l")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/FailedPanel" unique_id=1254104149]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/FailedPanel/MarginContainer" unique_id=2120472353]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer" unique_id=1722246512]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Level Failed"
+
+[node name="Description" type="Label" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer" unique_id=1143734621]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Civilians were harmed.
+Be more careful next time.
+(but in a funny way idk yet)"
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer" unique_id=998895671]
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("11_mcffj")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer/ResetButton" unique_id=1092467237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer/ResetButton/MarginContainer" unique_id=238986907]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("11_2rd6h")
+stretch_mode = 5
+
+[node name="SucceededPanel" type="PanelContainer" parent="CanvasLayer/UI" unique_id=216541054]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -10.0
+offset_right = 0.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_vjgi4")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/SucceededPanel" unique_id=761908017]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/SucceededPanel/MarginContainer" unique_id=81381747]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer" unique_id=2294861]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Level Succeeded"
+
+[node name="Description" type="Label" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer" unique_id=1207567680]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "i am really good at writing
+flavour text
+sleep is for the weak of spirit"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer" unique_id=354031802]
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("18_45i86")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer/MainMenuButton" unique_id=1447029629]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer/MainMenuButton/MarginContainer" unique_id=1352287686]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("18_kyk2p")
+stretch_mode = 5
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=134966429]
 offset = Vector2(64, 32)

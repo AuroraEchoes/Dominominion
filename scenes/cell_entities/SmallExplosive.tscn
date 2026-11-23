@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c38k1mmcutb45"]
 
-[ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive.png" id="1_rmjtj"]
-[ext_resource type="Script" uid="uid://bcjbfkykrllhq" path="res://scripts/cell_entities/instances/small_explosive_cell_entity.gd" id="2_rd7hl"]
+[ext_resource type="Texture2D" uid="uid://bqate0dfchjqj" path="res://assets/sprites/explosive_small.png" id="1_v7w6g"]
+[ext_resource type="Script" uid="uid://bcjbfkykrllhq" path="res://scripts/cell_entities/instances/explosive_cell_entity.gd" id="2_rd7hl"]
 [ext_resource type="Resource" uid="uid://c5nnav5ij1625" path="res://resources/items/SmallExplosive.tres" id="3_8tie4"]
 [ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_v7w6g"]
 
@@ -11,7 +11,9 @@ offset_left = -4.0
 offset_top = -4.0
 offset_right = 4.0
 offset_bottom = 4.0
-texture = ExtResource("1_rmjtj")
+texture = ExtResource("1_v7w6g")
 script = ExtResource("2_rd7hl")
+fuse_length = 0.75
+radius = 1
 resource = ExtResource("3_8tie4")
 tooltip_scene = ExtResource("4_v7w6g")

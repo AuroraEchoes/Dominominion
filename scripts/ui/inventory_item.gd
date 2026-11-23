@@ -22,6 +22,10 @@ func _ready() -> void:
 		_update_texture()
 
 func _get_drag_data(at_position: Vector2) -> Variant:
+	var dormant := LocalLevelManager.get_active_level().state == Level.LevelState.DORMANT
+	if (InventoryManager.get_count(item_path) <= 0 || !dormant):
+		return null
+
 	set_drag_preview(_get_drag_preview())
 	return { "item": item_path, "source": "inventory" }
 

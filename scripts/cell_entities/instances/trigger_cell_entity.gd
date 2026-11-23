@@ -28,6 +28,6 @@ func enter_primed():
 	var fuse := Fuse.new(self, fuse_length)
 	await fuse.finished
 	area_of_effect.activate()
-	cell_highlight_group.destroy()
-	cell_highlight_group = null
-
+	if cell_highlight_group != null:
+		cell_highlight_group.destroy()
+		cell_highlight_group = null

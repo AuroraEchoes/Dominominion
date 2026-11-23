@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://7cnp8a6bdf71"]
+
+[ext_resource type="Texture2D" uid="uid://dg6dgvklv3i8g" path="res://assets/sprites/fantasy/tile_0072.png" id="1_mpjoa"]
+[ext_resource type="Script" uid="uid://bx053p3sy7sqc" path="res://scripts/cell_entities/instances/bow_cell_entity.gd" id="2_mpjoa"]
+[ext_resource type="Resource" uid="uid://bsk1je77bu1j4" path="res://resources/items/Bow.tres" id="2_xwtsb"]
+[ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="3_xwtsb"]
+
+[node name="Bow" type="TextureRect" unique_id=23073023]
+texture_filter = 1
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+texture = ExtResource("1_mpjoa")
+script = ExtResource("2_mpjoa")
+offset = Vector2i(1, -3)
+charge_speed = 50.0
+resource = ExtResource("2_xwtsb")
+tooltip_scene = ExtResource("3_xwtsb")
+base_rotation = -45.0
