@@ -1,2 +1,0 @@
-extends ItemEffectResource
-class_name TargetItemEffectResource

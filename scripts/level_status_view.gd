@@ -14,9 +14,6 @@ enum VisualisationMode {
 var current_selected_cell = null
 var nonempty_cells_to_visualisation_sources: Dictionary[Vector2i, Vector2i] = {}
 
-func _ready() -> void:
-	level.simulation_started.connect(_on_simulation_started)
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		on_click(event.global_position)
@@ -56,14 +53,4 @@ func hide_item_visualisation(item: Vector2i):
 			nonempty_cells_to_visualisation_sources.erase(nonempty_cell)
 
 func local_camera_pos(global: Vector2) -> Vector2:
-	return (get_viewport().get_screen_transform() * get_canvas_transform()).affine_inverse() * global
-
-func _on_simulation_started():
-	level.simulation.fuse_lit.connect(_on_fuse_lit)
-	level.simulation.activated.connect(_on_activated)
-
-func _on_fuse_lit(obj: LevelSimulation.TimedSpawnedObject):
-	visualise_item(obj.item, obj.cell, VisualisationMode.FuseLit)
-
-func _on_activated(obj: LevelSimulation.TimedSpawnedObject):
-	hide_item_visualisation(obj.cell)
+	return (get_canvas_transform()).affine_inverse() * global

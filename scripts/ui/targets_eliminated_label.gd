@@ -1,7 +1,7 @@
 extends Label
 
 func _ready() -> void:
-	LocalLevelManager.get_active_level().target_eliminated.connect(_update_label)
+	LocalLevelManager.get_active_level().targets_changed.connect(_update_label)
 	_update_label()
 
 func _update_label():

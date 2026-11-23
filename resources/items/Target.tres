@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://wiyhjtpmu71r"]
+
+[ext_resource type="Script" uid="uid://dj3fer6e05g87" path="res://scripts/resources/item_resource.gd" id="1_uo84w"]
+[ext_resource type="Texture2D" uid="uid://yhcbh0yosvgw" path="res://assets/sprites/target.png" id="2_tpte5"]
+
+[sub_resource type="GDScript" id="GDScript_tpte5"]
+
+[resource]
+script = ExtResource("1_uo84w")
+name = "Target"
+texture = ExtResource("2_tpte5")
+atlas_tile_id = 2
+description = "Destroy this"

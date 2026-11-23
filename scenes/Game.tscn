@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://df8r4vt4m3m8t"]
+
+[ext_resource type="PackedScene" uid="uid://b5vwmquhomm0g" path="res://scenes/levels/Level.tscn" id="1_400sg"]
+[ext_resource type="Script" uid="uid://4ssc12qg85x1" path="res://scripts/ui/drop_handler.gd" id="2_g4kob"]
+[ext_resource type="Script" uid="uid://m7ndlx86gm3x" path="res://scripts/ui/inventory_ui_manager.gd" id="3_qy1jj"]
+[ext_resource type="PackedScene" uid="uid://bhlrfqu80gk26" path="res://scenes/ui/InventoryItem.tscn" id="4_400sg"]
+[ext_resource type="Theme" uid="uid://c4nhh3lk4ipni" path="res://resources/Theme.tres" id="5_mcffj"]
+[ext_resource type="Script" uid="uid://e3a772matugp" path="res://scripts/ui/targets_eliminated_label.gd" id="6_2rd6h"]
+[ext_resource type="Script" uid="uid://n08kgkkj4lay" path="res://scripts/ui/play_button.gd" id="7_7ua8r"]
+[ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="8_r7sob"]
+
+[node name="Game" type="Node2D" unique_id=1922569510]
+
+[node name="Level" parent="." unique_id=104788486 instance=ExtResource("1_400sg")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=21714096]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1149621283]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="DropHandler" type="Control" parent="CanvasLayer/UI" unique_id=403422507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+mouse_filter = 2
+script = ExtResource("2_g4kob")
+
+[node name="Inventory" type="MarginContainer" parent="CanvasLayer/UI" unique_id=1458954342]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -197.0
+offset_right = 4.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Inventory" unique_id=644267923]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TargetsEliminated" type="Label" parent="CanvasLayer/UI/Inventory/VBoxContainer" unique_id=1345094659]
+layout_mode = 2
+theme = ExtResource("5_mcffj")
+theme_type_variation = &"HeaderSmall"
+text = "Targets Eliminated: (n/n)"
+horizontal_alignment = 1
+script = ExtResource("6_2rd6h")
+
+[node name="LowerPanel" type="HBoxContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer" unique_id=876904539]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="InventoryPanel" type="PanelContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel" unique_id=771566634 node_paths=PackedStringArray("container")]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_qy1jj")
+container = NodePath("MarginContainer/HBoxContainer")
+inventory_slot_scene = ExtResource("4_400sg")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/InventoryPanel" unique_id=1444527231]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/InventoryPanel/MarginContainer" unique_id=430359634]
+custom_minimum_size = Vector2(0, 91)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel" unique_id=1807733565]
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_7ua8r")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/PlayButton" unique_id=237151914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/PlayButton/MarginContainer" unique_id=1743791779]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_r7sob")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=134966429]
+offset = Vector2(64, 32)
+zoom = Vector2(8, 8)

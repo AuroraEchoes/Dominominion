@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 LocalLevelManager="*uid://iev6ystwvj67"
 InventoryManager="*uid://3pmh5loar5u"
-ItemManager="*uid://c1ghi5tye6nix"
+ItemManager="*uid://bcm5tf3i8ftb3"
 
 [debug]
 
@@ -27,8 +27,12 @@ gdscript/warnings/shadowed_variable=0
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom="uid://c4nhh3lk4ipni"
 
 [physics]
 

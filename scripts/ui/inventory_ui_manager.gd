@@ -27,6 +27,15 @@ func _on_inventory_changed():
 			var current := inventory_items[current_idx]
 			current.set_count(count)
 
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	return true
+
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	if data["source"] == "world":
+		var node := data["node"] as CellEntity
+		node.destroy()
+		InventoryManager.add_item(data["item"])
+	print("DROP!!! ", data)
 
 func _slot_is_item(slot: InventoryItem, item: String) -> bool:
-	return slot.item_resource == item
+	return slot.item_path == item

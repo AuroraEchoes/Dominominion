@@ -3,11 +3,11 @@ class_name ItemResource
 
 @export var name: String
 @export var texture: Texture2D
-@export var item_effect: ItemEffectResource
+@export var pickable: bool
 @export var atlas_source_id: int
 @export var atlas_tile_id: int
-@export var fuse_time: float
-@export var repeating: bool
+@export_multiline var description: String
+@export var icons: Array[TooltipIconInfoResource]
 
 func get_item_name() -> String:
 	return name

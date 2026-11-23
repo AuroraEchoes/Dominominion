@@ -1,19 +1,19 @@
 [gd_resource type="TileSet" format=3 uid="uid://cf1243alcarb4"]
 
-[ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive.png" id="1_tg2ke"]
-[ext_resource type="PackedScene" uid="uid://c7ug86ewvvo8r" path="res://scenes/items/explosive.tscn" id="2_4lqu8"]
+[ext_resource type="PackedScene" uid="uid://cuskyl4jbhvjf" path="res://scenes/cell_entities/Trigger.tscn" id="1_euqug"]
+[ext_resource type="PackedScene" uid="uid://bboevtx5lo0un" path="res://scenes/cell_entities/Target.tscn" id="2_558k6"]
 [ext_resource type="PackedScene" uid="uid://c38k1mmcutb45" path="res://scenes/cell_entities/SmallExplosive.tscn" id="3_euqug"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lqu8"]
-texture = ExtResource("1_tg2ke")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5i73j"]
+resource_name = "Obstructions"
+scenes/1/scene = ExtResource("1_euqug")
+scenes/2/scene = ExtResource("2_558k6")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tg2ke"]
-scenes/1/scene = ExtResource("2_4lqu8")
+resource_name = "Items"
 scenes/2/scene = ExtResource("3_euqug")
 
 [resource]
 tile_size = Vector2i(8, 8)
-sources/0 = SubResource("TileSetAtlasSource_4lqu8")
 sources/1 = SubResource("TileSetScenesCollectionSource_tg2ke")
+sources/0 = SubResource("TileSetScenesCollectionSource_5i73j")

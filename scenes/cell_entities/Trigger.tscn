@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cuskyl4jbhvjf"]
+
+[ext_resource type="Texture2D" uid="uid://dv3x825ifih1p" path="res://assets/sprites/special.png" id="1_eajkb"]
+[ext_resource type="Script" uid="uid://dmi2na8uedqu6" path="res://scripts/cell_entities/instances/trigger_cell_entity.gd" id="2_rl1i0"]
+[ext_resource type="Resource" uid="uid://dfo2tp78vd1ol" path="res://resources/items/Trigger.tres" id="3_rl1i0"]
+[ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_ycwi6"]
+
+[node name="Trigger" type="TextureRect" unique_id=1036900127]
+texture_filter = 1
+offset_left = -12.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+texture = ExtResource("1_eajkb")
+script = ExtResource("2_rl1i0")
+resource = ExtResource("3_rl1i0")
+tooltip_scene = ExtResource("4_ycwi6")

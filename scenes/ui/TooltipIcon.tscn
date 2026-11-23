@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://t1au6gq3exrl"]
+
+[ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="1_c67nk"]
+[ext_resource type="Script" uid="uid://cmhpcomqkgf30" path="res://scripts/ui/tooltip_icon.gd" id="1_d7pnt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puwee"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TooltipIcon" type="PanelContainer" unique_id=1867488608 node_paths=PackedStringArray("panel", "texture_rect", "label")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_puwee")
+script = ExtResource("1_d7pnt")
+panel = NodePath(".")
+texture_rect = NodePath("MarginContainer/HBoxContainer/TextureRect")
+label = NodePath("MarginContainer/HBoxContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1703401741]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=437039349]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1602682681]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_c67nk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1581106845]
+layout_mode = 2
+text = "AoE"

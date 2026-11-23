@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bhlrfqu80gk26"]
+
+[ext_resource type="Script" uid="uid://cbb6rmh6784jb" path="res://scripts/ui/inventory_item.gd" id="1_rqsw5"]
+[ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive.png" id="2_un6ge"]
+
+[node name="InventoryItem" type="VBoxContainer" unique_id=1224420695 node_paths=PackedStringArray("item_name_label", "item_texture_rect")]
+script = ExtResource("1_rqsw5")
+item_name_label = NodePath("Label")
+item_texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=198865871]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_un6ge")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1753253591]
+layout_mode = 2
+text = "Small Explosive (2)"
