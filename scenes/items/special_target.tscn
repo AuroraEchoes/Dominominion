@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c8s03hclfcx5"]
+
+[ext_resource type="Texture2D" uid="uid://yhcbh0yosvgw" path="res://assets/sprites/target.png" id="1_hbc6v"]
+
+[node name="SpecialTarget" type="Sprite2D" unique_id=715368145]
+texture_filter = 1
+texture = ExtResource("1_hbc6v")
+metadata/is_target = true

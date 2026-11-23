@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://2ope7mgwove"]
+
+[ext_resource type="Script" uid="uid://dadxgl4ypcrhe" path="res://scripts/resources/item_resource.gd" id="1_4tknt"]
+[ext_resource type="Script" uid="uid://bytglgl1fjxxl" path="res://scripts/resources/item_effect_resource.gd" id="1_mionq"]
+[ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="3_63mrg"]
+
+[sub_resource type="Resource" id="Resource_xjrum"]
+script = ExtResource("1_mionq")
+area_value = 2
+metadata/_custom_type_script = "uid://bytglgl1fjxxl"
+
+[resource]
+script = ExtResource("1_4tknt")
+name = "Special Trigger"
+texture = ExtResource("3_63mrg")
+item_effect = SubResource("Resource_xjrum")
+fuse_time = 0.75
+metadata/_custom_type_script = "uid://dadxgl4ypcrhe"

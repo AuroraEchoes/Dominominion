@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://c4nhh3lk4ipni"]
+
+[ext_resource type="FontFile" uid="uid://e0hwiilxyquq" path="res://assets/Iceberg-Regular.ttf" id="1_jaexg"]
+
+[resource]
+HeaderLarge/font_sizes/font_size = 28
+HeaderLarge/fonts/font = ExtResource("1_jaexg")
+Label/fonts/Text = null

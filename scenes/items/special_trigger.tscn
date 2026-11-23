@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://qgse38255v88"]
+
+[ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="1_xjrum"]
+
+[node name="SpecialTrigger" type="Sprite2D" unique_id=569721057]
+texture_filter = 1
+texture = ExtResource("1_xjrum")
+metadata/is_trigger = true

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cahvnld43wdjv"]
+
+[ext_resource type="Script" uid="uid://cbb6rmh6784jb" path="res://scripts/ui/inventory_item.gd" id="1_letey"]
+[ext_resource type="Texture2D" uid="uid://dtrdk3or5wt4s" path="res://icon.svg" id="1_u4rwp"]
+
+[node name="InventoryItem" type="VBoxContainer" unique_id=2105395806 node_paths=PackedStringArray("item_name_label", "item_texture_rect")]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -77.5
+offset_right = 73.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_letey")
+item_name_label = NodePath("Label")
+item_texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=756578206]
+layout_mode = 2
+texture = ExtResource("1_u4rwp")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=79205500]
+layout_mode = 2
+text = "Explosive Barrel (5)"
+horizontal_alignment = 1

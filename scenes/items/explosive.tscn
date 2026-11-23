@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c7ug86ewvvo8r"]
+
+[ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive.png" id="1_k51ec"]
+[ext_resource type="Script" uid="uid://t0e75ngddk4g" path="res://scripts/items/explosive_spawned_item.gd" id="2_y0v2e"]
+
+[node name="Explosive" type="Sprite2D" unique_id=1480123796]
+texture_filter = 1
+texture = ExtResource("1_k51ec")
+script = ExtResource("2_y0v2e")
