@@ -4,6 +4,22 @@
 [ext_resource type="Script" uid="uid://bx053p3sy7sqc" path="res://scripts/cell_entities/instances/bow_cell_entity.gd" id="2_mpjoa"]
 [ext_resource type="Resource" uid="uid://bsk1je77bu1j4" path="res://resources/items/Bow.tres" id="2_xwtsb"]
 [ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="3_xwtsb"]
+[ext_resource type="Script" uid="uid://ducta3txkgwtn" path="res://scripts/cell_entities/components/cell_entity_audio_player.gd" id="5_474qi"]
+[ext_resource type="AudioStream" uid="uid://ccgr4pst6ai2t" path="res://assets/sounds/sfx/cell_entities/bow/DSGNMisc_HIT-Bit Kick_HY_PC-001.wav" id="6_474qi"]
+[ext_resource type="AudioStream" uid="uid://dvwotd8i36sun" path="res://assets/sounds/sfx/cell_entities/bow/DSGNMisc_HIT-Bit Kick_HY_PC-002.wav" id="7_rgito"]
+[ext_resource type="AudioStream" uid="uid://d5sciprf1f3b" path="res://assets/sounds/sfx/cell_entities/bow/DSGNMisc_HIT-Bit Kick_HY_PC-003.wav" id="8_tdjdk"]
+[ext_resource type="AudioStream" uid="uid://b52uv5bbuyr4x" path="res://assets/sounds/sfx/cell_entities/bow/DSGNMisc_HIT-Bit Kick_HY_PC-004.wav" id="9_j64i1"]
+[ext_resource type="AudioStream" uid="uid://ci56d8dqfc4ln" path="res://assets/sounds/sfx/cell_entities/bow/DSGNMisc_HIT-Bit Kick_HY_PC-005.wav" id="10_b8u7q"]
+[ext_resource type="AudioStream" uid="uid://cx7r2w7m1fx4n" path="res://assets/sounds/sfx/cell_entities/bow/DSGNMisc_HIT-Bit Kick_HY_PC-006.wav" id="11_eum8f"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ha3q"]
+streams_count = 6
+stream_0/stream = ExtResource("6_474qi")
+stream_1/stream = ExtResource("7_rgito")
+stream_2/stream = ExtResource("8_tdjdk")
+stream_3/stream = ExtResource("9_j64i1")
+stream_4/stream = ExtResource("10_b8u7q")
+stream_5/stream = ExtResource("11_eum8f")
 
 [node name="Bow" type="TextureRect" unique_id=23073023]
 texture_filter = 1
@@ -18,3 +34,9 @@ charge_speed = 50.0
 resource = ExtResource("2_xwtsb")
 tooltip_scene = ExtResource("3_xwtsb")
 base_rotation = -45.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=218357692 node_paths=PackedStringArray("cell_entity")]
+volume_db = -5.0
+script = ExtResource("5_474qi")
+cell_entity = NodePath("..")
+enter_active_sounds = SubResource("AudioStreamRandomizer_8ha3q")

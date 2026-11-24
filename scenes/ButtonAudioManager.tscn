@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cu0e3o5x54u1x"]
+
+[ext_resource type="Script" uid="uid://buksxi8pptfuf" path="res://scripts/globals/button_audio_manager.gd" id="1_hxnj3"]
+[ext_resource type="AudioStream" uid="uid://dytl1gkm7bivw" path="res://assets/sounds/sfx/ui/button/UIClick_INTERFACE-Strong Click 1_HY_PC-001.wav" id="2_mep7p"]
+[ext_resource type="AudioStream" uid="uid://b87x47onn7lmr" path="res://assets/sounds/sfx/ui/button/UIClick_INTERFACE-Strong Click 1_HY_PC-002.wav" id="3_1ckcx"]
+[ext_resource type="AudioStream" uid="uid://0mrw04howk85" path="res://assets/sounds/sfx/ui/button/UIClick_INTERFACE-Strong Click 1_HY_PC-003.wav" id="4_vxg1d"]
+[ext_resource type="AudioStream" uid="uid://btok8msbwiaj8" path="res://assets/sounds/sfx/ui/button/UIClick_INTERFACE-Strong Click 1_HY_PC-004.wav" id="5_jj5q4"]
+[ext_resource type="AudioStream" uid="uid://cbehmhd8hbhns" path="res://assets/sounds/sfx/ui/button/UIClick_INTERFACE-Strong Click 1_HY_PC-005.wav" id="6_od55y"]
+[ext_resource type="AudioStream" uid="uid://c2rtavihki2o5" path="res://assets/sounds/sfx/ui/button/UIClick_INTERFACE-Strong Click 1_HY_PC-006.wav" id="7_niaqh"]
+[ext_resource type="AudioStream" uid="uid://d08vqmu0sqwy1" path="res://assets/sounds/sfx/ui/pickup/UIClick_INTERFACE-Metallic Click_HY_PC-001.wav" id="8_hugus"]
+[ext_resource type="AudioStream" uid="uid://bdgnl63a0mk37" path="res://assets/sounds/sfx/ui/pickup/UIClick_INTERFACE-Metallic Click_HY_PC-002.wav" id="9_g5y4v"]
+[ext_resource type="AudioStream" uid="uid://doq7vnpyuwqay" path="res://assets/sounds/sfx/ui/pickup/UIClick_INTERFACE-Metallic Click_HY_PC-003.wav" id="10_02vxw"]
+[ext_resource type="AudioStream" uid="uid://c7jrrhmbnf2te" path="res://assets/sounds/sfx/ui/pickup/UIClick_INTERFACE-Metallic Click_HY_PC-004.wav" id="11_kjvfa"]
+[ext_resource type="AudioStream" uid="uid://bm7ll00n1soco" path="res://assets/sounds/sfx/ui/pickup/UIClick_INTERFACE-Metallic Click_HY_PC-005.wav" id="12_83ljo"]
+[ext_resource type="AudioStream" uid="uid://cmkdj4iuyl0yp" path="res://assets/sounds/sfx/ui/pickup/UIClick_INTERFACE-Metallic Click_HY_PC-006.wav" id="13_1dt3u"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_h0fa6"]
+
+[node name="ButtonAudioManager" type="AudioStreamPlayer" unique_id=258663232]
+stream = SubResource("AudioStreamPolyphonic_h0fa6")
+volume_db = -5.0
+pitch_scale = 0.75
+max_polyphony = 8
+playback_type = 1
+script = ExtResource("1_hxnj3")
+button_press_sounds = Array[AudioStream]([ExtResource("2_mep7p"), ExtResource("3_1ckcx"), ExtResource("4_vxg1d"), ExtResource("5_jj5q4"), ExtResource("6_od55y"), ExtResource("7_niaqh")])
+pickup_sounds = Array[AudioStream]([ExtResource("8_hugus"), ExtResource("9_g5y4v"), ExtResource("10_02vxw"), ExtResource("11_kjvfa"), ExtResource("12_83ljo"), ExtResource("13_1dt3u")])

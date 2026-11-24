@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4ssc12qg85x1" path="res://scripts/ui/drop_handler.gd" id="2_g4kob"]
 [ext_resource type="Script" uid="uid://m7ndlx86gm3x" path="res://scripts/ui/inventory_ui_manager.gd" id="3_qy1jj"]
+[ext_resource type="Shader" uid="uid://b8kvc28jgoutv" path="res://resources/shaders/post_processing.gdshader" id="4_45i86"]
 [ext_resource type="PackedScene" uid="uid://bhlrfqu80gk26" path="res://scenes/ui/InventoryItem.tscn" id="4_400sg"]
 [ext_resource type="Theme" uid="uid://c4nhh3lk4ipni" path="res://resources/Theme.tres" id="5_mcffj"]
 [ext_resource type="Script" uid="uid://e3a772matugp" path="res://scripts/ui/targets_eliminated_label.gd" id="6_2rd6h"]
@@ -18,6 +19,13 @@
 [ext_resource type="Script" uid="uid://uni635rnn75q" path="res://scripts/ui/level_succeeded_panel.gd" id="17_vjgi4"]
 [ext_resource type="Script" uid="uid://b8hun3vdh813" path="res://scripts/ui/buttons/main_menu_button.gd" id="18_45i86"]
 [ext_resource type="Texture2D" uid="uid://om4eqvhpau2e" path="res://assets/sprites/icons/menu.png" id="18_kyk2p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_45i86"]
+shader = ExtResource("4_45i86")
+shader_parameter/offsets = Vector3(0.002, -0.002, 0.001)
+shader_parameter/direction = Vector2(0.5, -0.5)
+shader_parameter/vingette_strength = 0.98
+shader_parameter/brighten_amount = 0.1
 
 [node name="Game" type="Node2D" unique_id=1922569510]
 
@@ -99,11 +107,12 @@ theme_override_constants/margin_bottom = 32
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="TargetsEliminated" type="Label" parent="CanvasLayer/UI/Inventory/VBoxContainer" unique_id=1345094659]
+[node name="TreasureGathered" type="Label" parent="CanvasLayer/UI/Inventory/VBoxContainer" unique_id=1345094659]
 layout_mode = 2
 theme = ExtResource("5_mcffj")
 theme_type_variation = &"HeaderSmall"
-text = "Targets Eliminated: (n/n)"
+theme_override_font_sizes/font_size = 32
+text = "Treasure Gathered: (n/n)"
 horizontal_alignment = 1
 script = ExtResource("6_2rd6h")
 
@@ -253,10 +262,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -10.0
-offset_right = 0.5
-offset_bottom = 10.0
+offset_left = -316.0
+offset_top = -134.0
+offset_right = 316.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_y5y3l")
@@ -274,14 +283,16 @@ layout_mode = 2
 [node name="Title" type="Label" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer" unique_id=1722246512]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 40
 text = "Level Failed"
 
 [node name="Description" type="Label" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer" unique_id=1143734621]
+custom_minimum_size = Vector2(450, 0)
+custom_maximum_size = Vector2(600, -1)
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "Civilians were harmed.
-Be more careful next time.
-(but in a funny way idk yet)"
+text = "Civilians were harmed. Not only have you caused grievous collateral damage, but the insurance collateral is gonna be a nightmare! There go the treasure profits..."
+autowrap_mode = 2
 
 [node name="ResetButton" type="Button" parent="CanvasLayer/UI/FailedPanel/MarginContainer/VBoxContainer" unique_id=998895671]
 custom_minimum_size = Vector2(96, 64)
@@ -316,10 +327,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -10.0
-offset_right = 0.5
-offset_bottom = 10.0
+offset_left = -316.0
+offset_top = -150.5
+offset_right = 316.0
+offset_bottom = 150.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("17_vjgi4")
@@ -337,14 +348,16 @@ layout_mode = 2
 [node name="Title" type="Label" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer" unique_id=2294861]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 40
 text = "Level Succeeded"
 
 [node name="Description" type="Label" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer" unique_id=1207567680]
+custom_minimum_size = Vector2(450, 0)
+custom_maximum_size = Vector2(600, -1)
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "i am really good at writing
-flavour text
-sleep is for the weak of spirit"
+text = "A thunderous success (at least according to the residents; that’s probably because of the explosives)! You’ve vastly enriched yourself. So cap’n, onward to bigger and better plunders, or do you think you can do it with less equipment?"
+autowrap_mode = 2
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer/UI/SucceededPanel/MarginContainer/VBoxContainer" unique_id=354031802]
 custom_minimum_size = Vector2(96, 64)
@@ -370,6 +383,16 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("18_kyk2p")
 stretch_mode = 5
+
+[node name="PostProcessing" type="ColorRect" parent="CanvasLayer/UI" unique_id=879660881]
+material = SubResource("ShaderMaterial_45i86")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=134966429]
 offset = Vector2(64, 32)

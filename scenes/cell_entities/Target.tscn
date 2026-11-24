@@ -5,6 +5,10 @@
 [ext_resource type="Resource" uid="uid://wiyhjtpmu71r" path="res://resources/items/level/Target.tres" id="3_ggwhm"]
 [ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_lomc1"]
 
+[sub_resource type="Gradient" id="Gradient_lomc1"]
+offsets = PackedFloat32Array(0, 0.49272728)
+colors = PackedColorArray(1, 1, 1, 1, 0.24, 0.18384, 0.052800007, 0)
+
 [node name="Target" type="TextureRect" unique_id=783731255]
 texture_filter = 1
 offset_left = -4.0
@@ -15,3 +19,24 @@ texture = ExtResource("1_lomc1")
 script = ExtResource("2_ckgu4")
 resource = ExtResource("3_ggwhm")
 tooltip_scene = ExtResource("4_lomc1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=7773183]
+position = Vector2(4, 4)
+explosiveness = 0.25
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_max = 25.0
+angular_velocity_min = -32.0
+angular_velocity_max = 105.14
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+damping_min = 30.476
+damping_max = 43.493
+scale_amount_max = 2.0
+color = Color(0.84, 0.66528, 0.033600017, 1)
+color_ramp = SubResource("Gradient_lomc1")
+hue_variation_min = 0.06
+hue_variation_max = 0.38

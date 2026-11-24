@@ -21,8 +21,8 @@ func clear():
 
 class HighlightGroup extends TileMapLayer:
 	const PULSE_SPEED = 3.0
-	const MIN_OPACITY = 0.4
-	const MAX_OPACITY = 0.7
+	const MIN_OPACITY = 0.6
+	const MAX_OPACITY = 1.0
 
 	var active_tween: Tween
 

@@ -12,6 +12,7 @@ signal civilian_activated
 signal state_changed
 signal cleared
 signal pause_state_changed(new_state: bool)
+signal cell_drag_dropped
 
 @export var terrain: TileMapLayer
 @export var spawned: TileMapLayer
@@ -92,13 +93,17 @@ func drop_at_global_pos(screen_pos: Vector2, data):
 	var tile := terrain.local_to_map(local)
 	var item_resource := ItemManager.get_item(item)
 	if data["source"] == "world":
-		print("move from world")
 		var node: CellEntity = data["node"]
 		node.move_to_cell(tile)
 	elif data["source"] == "inventory":
-		print("move from inventory")
-		spawned.set_cell(tile, item_resource.get_atlas_source_id(), Vector2i.ZERO, item_resource.get_atlas_tile_id())
+		var source := spawned.tile_set.get_source(item_resource.get_atlas_source_id()) as TileSetScenesCollectionSource
+		var scene := source.get_scene_tile_scene(item_resource.get_atlas_tile_id())
+		var instance := scene.instantiate() as CellEntity
+		instance.position = spawned.map_to_local(tile) - spawned.tile_set.tile_size * 0.5
+		spawned.add_child(instance)
+		# spawned.set_cell(tile, item_resource.get_atlas_source_id(), Vector2i.ZERO, item_resource.get_atlas_tile_id())
 		InventoryManager.drop_item(item)
+	cell_drag_dropped.emit()
 
 func local_camera_pos(global: Vector2) -> Vector2:
 	return (get_canvas_transform()).affine_inverse() * global

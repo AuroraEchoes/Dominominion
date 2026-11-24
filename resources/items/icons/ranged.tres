@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TooltipIconInfoResource" format=3 uid="uid://csmsq724qefrf"]
+
+[ext_resource type="Texture2D" uid="uid://mujwox6wd7vl" path="res://assets/sprites/icons/ranged.png" id="1_etah4"]
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="2_7cks6"]
+
+[resource]
+script = ExtResource("2_7cks6")
+icon = ExtResource("1_etah4")
+color = Color(0.15123138, 0.32216427, 0.25489342, 1)
+text = "Ranged"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"

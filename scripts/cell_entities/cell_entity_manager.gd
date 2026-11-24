@@ -17,21 +17,20 @@ func clear():
 	for cell in cells_entities.keys():
 		if cells_entities[cell].resource.pickable:
 			cells_entities[cell].destroy()
+			cells_entities.erase(cell)
 
 func register(cell_entity: CellEntity) -> void:
 	cells_entities.set(cell_entity.cell, cell_entity)
 	cell_entity.cell_changed.connect(_on_cell_changed)
 	any_changed.emit()
 
-func unregister(cell_entity: CellEntity) -> void:
+func unregister(cell_entity: CellEntity, erase: bool = false) -> void:
 	cell_entity.cell_changed.disconnect(_on_cell_changed)
 	cells_entities.erase(cell_entity.cell)
 	# cell_entities.erase(cell_entity)
 	any_changed.emit()
 
 func change_cell(previous_cell: Vector2i, new_cell: Vector2i):
-	if cells_entities.has(new_cell):
-		print("we're ditching an already existing one here?")
 	cells_entities[new_cell] = cells_entities[previous_cell]
 	cells_entities.erase(previous_cell)
 
@@ -58,7 +57,8 @@ func raze_terrain_cell_if_occupied(cell: Vector2i):
 	var placeable := false
 	if terrain_data != null:
 		placeable = terrain_data.get_custom_data("placeable")
-		if !placeable:
+		var replaceable := terrain_data.get_custom_data("replaceable") as bool
+		if !placeable && replaceable:
 			var atlas_id := level.terrain.get_cell_source_id(cell)
 			var atlas_cell := level.terrain.get_cell_atlas_coords(cell)
 			pre_razed_terrain_values[cell] = PreRazedCellData.new(atlas_id, atlas_cell)

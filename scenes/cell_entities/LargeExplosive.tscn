@@ -4,6 +4,22 @@
 [ext_resource type="Script" uid="uid://bcjbfkykrllhq" path="res://scripts/cell_entities/instances/explosive_cell_entity.gd" id="2_tluge"]
 [ext_resource type="Resource" uid="uid://d4nmb8s3x6viy" path="res://resources/items/LargeExplosive.tres" id="3_2t1vu"]
 [ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_t3sn8"]
+[ext_resource type="Script" uid="uid://ducta3txkgwtn" path="res://scripts/cell_entities/components/cell_entity_audio_player.gd" id="5_hlwkp"]
+[ext_resource type="AudioStream" uid="uid://bitctik5f5di4" path="res://assets/sounds/sfx/cell_entities/explosives/DSGNImpt_EXPLOSION-Thud_HY_PC-001.wav" id="6_5q0ok"]
+[ext_resource type="AudioStream" uid="uid://coomwkaixa1jl" path="res://assets/sounds/sfx/cell_entities/explosives/DSGNImpt_EXPLOSION-Thud_HY_PC-002.wav" id="7_wfl74"]
+[ext_resource type="AudioStream" uid="uid://dhfpnwc3l3b7f" path="res://assets/sounds/sfx/cell_entities/explosives/DSGNImpt_EXPLOSION-Thud_HY_PC-003.wav" id="8_y3cq6"]
+[ext_resource type="AudioStream" uid="uid://cbyhc820bx1d" path="res://assets/sounds/sfx/cell_entities/explosives/DSGNImpt_EXPLOSION-Thud_HY_PC-004.wav" id="9_2hnix"]
+[ext_resource type="AudioStream" uid="uid://br6in4be2ysam" path="res://assets/sounds/sfx/cell_entities/explosives/DSGNImpt_EXPLOSION-Thud_HY_PC-005.wav" id="10_pwyfe"]
+[ext_resource type="AudioStream" uid="uid://bs6oeu2hmgbhl" path="res://assets/sounds/sfx/cell_entities/explosives/DSGNImpt_EXPLOSION-Thud_HY_PC-006.wav" id="11_ec0vd"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_auc7g"]
+streams_count = 6
+stream_0/stream = ExtResource("6_5q0ok")
+stream_1/stream = ExtResource("7_wfl74")
+stream_2/stream = ExtResource("8_y3cq6")
+stream_3/stream = ExtResource("9_2hnix")
+stream_4/stream = ExtResource("10_pwyfe")
+stream_5/stream = ExtResource("11_ec0vd")
 
 [node name="LargeExplosive" type="TextureRect" unique_id=291916684]
 texture_filter = 1
@@ -17,3 +33,9 @@ fuse_length = 1.75
 radius = 3
 resource = ExtResource("3_2t1vu")
 tooltip_scene = ExtResource("4_t3sn8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1040865331 node_paths=PackedStringArray("cell_entity")]
+pitch_scale = 0.5
+script = ExtResource("5_hlwkp")
+cell_entity = NodePath("..")
+exit_active_sounds = SubResource("AudioStreamRandomizer_auc7g")

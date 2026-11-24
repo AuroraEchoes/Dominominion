@@ -4,8 +4,26 @@
 [ext_resource type="Script" uid="uid://dmi2na8uedqu6" path="res://scripts/cell_entities/instances/trigger_cell_entity.gd" id="2_rl1i0"]
 [ext_resource type="Resource" uid="uid://dfo2tp78vd1ol" path="res://resources/items/level/Trigger.tres" id="3_rl1i0"]
 [ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_ycwi6"]
+[ext_resource type="Script" uid="uid://clx8rgww4d6gf" path="res://scenes/cell_entities/trigger_flicker_effect.gd" id="5_821sp"]
+[ext_resource type="Texture2D" uid="uid://c1mau8jfaag4l" path="res://assets/sprites/icons/tile_0137_frame_1.png" id="6_hnbj0"]
+[ext_resource type="Texture2D" uid="uid://u84cbbc0hkay" path="res://assets/sprites/icons/tile_0137_frame_2.png" id="7_44l4m"]
+[ext_resource type="Texture2D" uid="uid://bipuidepkc13l" path="res://assets/sprites/icons/tile_0137_frame_3.png" id="8_kmlxq"]
+
+[sub_resource type="Gradient" id="Gradient_ycwi6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.4032258)
+colors = PackedColorArray(0.80784315, 0.50980395, 0.1882353, 0.627451, 0.80784315, 0.50980395, 0.1882353, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xj6jg"]
+gradient = SubResource("Gradient_ycwi6")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.7, 0)
 
 [node name="Trigger" type="TextureRect" unique_id=1036900127]
+z_index = 1
 texture_filter = 1
 offset_left = -4.0
 offset_top = -4.0
@@ -15,3 +33,27 @@ texture = ExtResource("1_ycwi6")
 script = ExtResource("2_rl1i0")
 resource = ExtResource("3_rl1i0")
 tooltip_scene = ExtResource("4_ycwi6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=905438606 node_paths=PackedStringArray("parent")]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_xj6jg")
+script = ExtResource("5_821sp")
+parent = NodePath("..")
+frames = Array[Texture2D]([ExtResource("1_ycwi6"), ExtResource("6_hnbj0"), ExtResource("7_44l4m"), ExtResource("8_kmlxq")])
+time_per_frame = 0.25
+min_radius = 0.2
+max_radius = 0.8
+min_radius_time = 0.1
+max_radius_time = 0.75

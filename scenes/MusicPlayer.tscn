@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://lnqomy3gowif"]
+
+[ext_resource type="AudioStream" uid="uid://oy7twcc6rcs1" path="res://assets/sounds/music/2014 07_ Clement Panchout_ Partycles OST_ Cheerful Title Screen.wav" id="1_iv8gy"]
+[ext_resource type="AudioStream" uid="uid://bsnwn3dtep42n" path="res://assets/sounds/music/Clement Panchout _ LJ_Tel_Breakbeat.wav" id="3_ncbx1"]
+[ext_resource type="AudioStream" uid="uid://d2ys2mkakhj46" path="res://assets/sounds/music/Clement Panchout _ LJ_Tel_HipHop.wav" id="4_fvo16"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_johg7"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("1_iv8gy")
+stream_1 = ExtResource("3_ncbx1")
+stream_2 = ExtResource("4_fvo16")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1450594707]
+stream = SubResource("AudioStreamPlaylist_johg7")
+volume_db = -15.0
+autoplay = true

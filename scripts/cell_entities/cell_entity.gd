@@ -3,6 +3,15 @@ class_name CellEntity extends TextureRect
 signal cell_changed
 signal direction_changed
 
+signal entered_dormant
+signal exited_dormant
+signal entered_primed
+signal exited_primed
+signal entered_active
+signal exited_active
+signal entered_expired
+signal exited_expired
+
 enum State {
 	DORMANT,
 	PRIMED,
@@ -38,34 +47,45 @@ func _ready() -> void:
 	direction_changed.emit()
 
 	enter_dormant()
+	entered_dormant.emit()
 
 func prime():
 	if state == State.DORMANT:
 		exit_dormant()
+		exited_dormant.emit()
 		state = State.PRIMED
 		enter_primed()
+		entered_primed.emit()
 
 func activate():
 	if state == State.PRIMED:
 		exit_primed()
+		exited_primed.emit()
 		state = State.ACTIVE
 		enter_active()
+		entered_active.emit()
 
 func expire():
 	if state == State.ACTIVE:
 		exit_active()
+		exited_active.emit()
 		state = State.EXPIRED
 		enter_expired()
+		entered_expired.emit()
 
 func dormant():
 	if state == State.PRIMED:
 		exit_primed()
+		exited_primed.emit()
 	elif state == State.ACTIVE:
 		exit_active()
+		exited_active.emit()
 	elif state == State.EXPIRED:
 		exit_expired()
+		exited_expired.emit()
 	state = State.DORMANT
 	enter_dormant()
+	entered_dormant.emit()
 
 func enter_dormant():
 	pass
@@ -112,9 +132,7 @@ func move_to_cell(new_cell: Vector2i):
 	cell_changed.emit()
 
 func destroy():
-	print("destroy called on ", self, " type ", type_string(typeof(self)))
 	manager.unregister(self)
-	manager.level.spawned.erase_cell(cell)
 	queue_free()
 
 func rotate_direction():

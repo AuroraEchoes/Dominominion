@@ -5,6 +5,7 @@ var item_path: String
 var item_count: int
 @export var item_name_label: Label
 @export var item_texture_rect: TextureRect
+@export var tooltip_scene: PackedScene
 
 func init(item: String, count: int):
 	item_path = item
@@ -39,3 +40,12 @@ func _update_label():
 
 func _update_texture():
 	item_texture_rect.texture = ItemManager.get_item(item_path).get_item_texture()
+
+func _get_tooltip(at_position: Vector2) -> String:
+	return item_path
+
+
+func _make_custom_tooltip(for_text: String) -> Object:
+	var tooltip := tooltip_scene.instantiate() as Tooltip
+	tooltip.initialize(ItemManager.get_item(item_path))
+	return tooltip

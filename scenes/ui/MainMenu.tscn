@@ -7,9 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://dg6dgvklv3i8g" path="res://assets/sprites/fantasy/tile_0072.png" id="5_xpiny"]
 [ext_resource type="Texture2D" uid="uid://c0rqsn6e1fjxt" path="res://assets/sprites/fantasy/tile_0084.png" id="6_bhu4a"]
 [ext_resource type="PackedScene" uid="uid://dvpusrjl1wn7m" path="res://scenes/levels/Level3.tscn" id="6_e2per"]
+[ext_resource type="Texture2D" uid="uid://27vyj6krx6kc" path="res://assets/sprites/fantasy/tile_0095.png" id="8_7mi0g"]
+[ext_resource type="PackedScene" uid="uid://qvt26ynnuffe" path="res://scenes/levels/Level4.tscn" id="8_nqjyj"]
+[ext_resource type="Shader" uid="uid://b8kvc28jgoutv" path="res://resources/shaders/post_processing.gdshader" id="10_7vr37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_johg7"]
 bg_color = Color(0.13333334, 0.13725491, 0.13725491, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kncl5"]
+shader = ExtResource("10_7vr37")
+shader_parameter/offsets = Vector3(0.002, -0.002, 0.001)
+shader_parameter/direction = Vector2(0.5, -0.5)
+shader_parameter/vingette_strength = 0.98
+shader_parameter/brighten_amount = 0.0
 
 [node name="MainMenu" type="PanelContainer" unique_id=2140227829]
 anchors_preset = 15
@@ -35,7 +45,7 @@ size_flags_horizontal = 4
 theme = ExtResource("1_l6cm7")
 theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 64
-text = "Cor! Send a Fact"
+text = "Dominominion"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=169238332]
 custom_minimum_size = Vector2(320, 400)
@@ -63,3 +73,11 @@ texture = ExtResource("6_bhu4a")
 
 [node name="Level4" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=60200777 instance=ExtResource("2_6jbdy")]
 layout_mode = 2
+level = ExtResource("8_nqjyj")
+level_text = "Level 4"
+texture = ExtResource("8_7mi0g")
+
+[node name="PostProcessing" type="ColorRect" parent="." unique_id=1898168280]
+material = SubResource("ShaderMaterial_kncl5")
+layout_mode = 2
+mouse_filter = 2

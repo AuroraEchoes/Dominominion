@@ -10,6 +10,12 @@ func _ready():
 	super()
 	straight_path = CastedStraightPath.new(self, max_charge_dist)
 
+func enter_dormant():
+	offset_transform_position = Vector2.ZERO
+
+func enter_primed():
+	offset_transform_position = Vector2.ZERO
+
 func enter_active():
 	if cell_highlight_group != null:
 		cell_highlight_group.destroy()
@@ -45,7 +51,6 @@ func enter_expired():
 	if cell_highlight_group != null:
 		cell_highlight_group.destroy()
 		cell_highlight_group = null
-
 
 func exit_expired():
 	offset_transform_position = Vector2.ZERO

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TooltipIconInfoResource" format=3 uid="uid://tafets1nt64a"]
+
+[ext_resource type="Texture2D" uid="uid://dfpnxraptvkgb" path="res://assets/sprites/icons/charge.png" id="1_56f4a"]
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="2_yoeti"]
+
+[resource]
+script = ExtResource("2_yoeti")
+icon = ExtResource("1_56f4a")
+color = Color(0.25215998, 0.15040001, 0.32, 1)
+text = "Charge"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"

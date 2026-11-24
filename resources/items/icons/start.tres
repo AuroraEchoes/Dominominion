@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TooltipIconInfoResource" format=3 uid="uid://do0qlaqwfejpi"]
+
+[ext_resource type="Texture2D" uid="uid://gvw6164w4jos" path="res://assets/sprites/fantasy/tile_0137.png" id="1_og8bo"]
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="2_qjh1p"]
+
+[resource]
+script = ExtResource("2_qjh1p")
+icon = ExtResource("1_og8bo")
+color = Color(0.14901961, 0.2784314, 0.32156864, 1)
+text = "Start"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"

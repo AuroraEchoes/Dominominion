@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhlrfqu80gk26"]
 
 [ext_resource type="Script" uid="uid://cbb6rmh6784jb" path="res://scripts/ui/inventory_item.gd" id="1_rqsw5"]
+[ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="2_cmmsb"]
 [ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive_OLD.png" id="2_un6ge"]
 
 [node name="InventoryItem" type="VBoxContainer" unique_id=1224420695 node_paths=PackedStringArray("item_name_label", "item_texture_rect")]
@@ -9,6 +10,7 @@ custom_maximum_size = Vector2(138, -1)
 script = ExtResource("1_rqsw5")
 item_name_label = NodePath("Label")
 item_texture_rect = NodePath("TextureRect")
+tooltip_scene = ExtResource("2_cmmsb")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=198865871]
 texture_filter = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TooltipIconInfoResource" format=3 uid="uid://dkpm4p5p7yu0v"]
+
+[ext_resource type="Texture2D" uid="uid://ce7th4667c2iv" path="res://assets/sprites/icons/area_of_effect.png" id="1_etah4"]
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="2_7cks6"]
+
+[resource]
+script = ExtResource("2_7cks6")
+icon = ExtResource("1_etah4")
+color = Color(0.34409088, 0.44643122, 0.17879999, 1)
+text = "AoE"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"

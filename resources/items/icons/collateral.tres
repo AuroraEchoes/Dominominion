@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TooltipIconInfoResource" format=3 uid="uid://cj84gwp2wuhpo"]
+
+[ext_resource type="Texture2D" uid="uid://dw3tl1htf08v1" path="res://assets/sprites/fantasy/tile_0117.png" id="1_x5tae"]
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="2_akycl"]
+
+[resource]
+script = ExtResource("2_akycl")
+icon = ExtResource("1_x5tae")
+color = Color(0.17018668, 0.32, 0.15040001, 1)
+text = "Collateral"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"

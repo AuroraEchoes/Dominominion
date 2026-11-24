@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2rtavihki2o5"
+path="res://.godot/imported/UIClick_INTERFACE-Strong Click 1_HY_PC-006.wav-e4659ed14b7f524d856143f1f9833a81.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/ui/button/UIClick_INTERFACE-Strong Click 1_HY_PC-006.wav"
+dest_files=["res://.godot/imported/UIClick_INTERFACE-Strong Click 1_HY_PC-006.wav-e4659ed14b7f524d856143f1f9833a81.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

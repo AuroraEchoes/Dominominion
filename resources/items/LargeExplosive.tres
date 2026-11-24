@@ -1,16 +1,9 @@
 [gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://d4nmb8s3x6viy"]
 
 [ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="1_fc1sv"]
-[ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="2_gokb3"]
+[ext_resource type="Resource" uid="uid://dkpm4p5p7yu0v" path="res://resources/items/icons/aoe.tres" id="2_fc1sv"]
 [ext_resource type="Script" uid="uid://dj3fer6e05g87" path="res://scripts/resources/item_resource.gd" id="3_l0ts0"]
 [ext_resource type="Texture2D" uid="uid://sgcmmr62pu4e" path="res://assets/sprites/explosive_large.png" id="4_fc1sv"]
-
-[sub_resource type="Resource" id="Resource_jda57"]
-script = ExtResource("1_fc1sv")
-icon = ExtResource("2_gokb3")
-color = Color(1, 0.443684, 0.37509552, 1)
-text = "AoE"
-metadata/_custom_type_script = "uid://dk0jwj2tvygi7"
 
 [resource]
 script = ExtResource("3_l0ts0")
@@ -19,5 +12,5 @@ texture = ExtResource("4_fc1sv")
 pickable = true
 atlas_source_id = 1
 atlas_tile_id = 3
-description = "That’ll leave a mark"
-icons = Array[ExtResource("1_fc1sv")]([SubResource("Resource_jda57")])
+description = "That’ll leave a mark! Blow up half the map and feel godlike power."
+icons = Array[ExtResource("1_fc1sv")]([ExtResource("2_fc1sv")])

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b52uv5bbuyr4x"
+path="res://.godot/imported/DSGNMisc_HIT-Bit Kick_HY_PC-004.wav-476877ab358bc3a411906e5e8b1b8dbf.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/cell_entities/bow/DSGNMisc_HIT-Bit Kick_HY_PC-004.wav"
+dest_files=["res://.godot/imported/DSGNMisc_HIT-Bit Kick_HY_PC-004.wav-476877ab358bc3a411906e5e8b1b8dbf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

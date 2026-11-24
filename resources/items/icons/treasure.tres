@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TooltipIconInfoResource" format=3 uid="uid://b8xk3dxnmwv8i"]
+
+[ext_resource type="Texture2D" uid="uid://c4v2ka7dv5mxi" path="res://assets/sprites/fantasy/tile_0057.png" id="1_8v3po"]
+[ext_resource type="Script" uid="uid://dk0jwj2tvygi7" path="res://scripts/resources/tooltip_icon_info_resource.gd" id="2_kxeq8"]
+
+[resource]
+script = ExtResource("2_kxeq8")
+icon = ExtResource("1_8v3po")
+color = Color(0.7, 0.38966668, 0.21000001, 1)
+text = "Treasure"
+metadata/_custom_type_script = "uid://dk0jwj2tvygi7"

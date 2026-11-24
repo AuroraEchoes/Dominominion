@@ -4,6 +4,22 @@
 [ext_resource type="Script" uid="uid://24dkrirxgff1" path="res://scripts/cell_entities/instances/sword_cell_entity.gd" id="2_sxjfy"]
 [ext_resource type="Resource" uid="uid://bvkmlt1y8dfx6" path="res://resources/items/Sword.tres" id="3_uvo07"]
 [ext_resource type="PackedScene" uid="uid://bvwvfvdiv5yrx" path="res://scenes/ui/Tooltip.tscn" id="4_atdem"]
+[ext_resource type="Script" uid="uid://ducta3txkgwtn" path="res://scripts/cell_entities/components/cell_entity_audio_player.gd" id="5_uvo07"]
+[ext_resource type="AudioStream" uid="uid://d0pes552j06co" path="res://assets/sounds/sfx/cell_entities/sword/DSGNMisc_MELEE-Bit Sword_HY_PC-002.wav" id="6_0cwa2"]
+[ext_resource type="AudioStream" uid="uid://crgm3bxmbqwco" path="res://assets/sounds/sfx/cell_entities/sword/DSGNMisc_MELEE-Bit Sword_HY_PC-003.wav" id="7_blwtu"]
+[ext_resource type="AudioStream" uid="uid://bsgqm3tsev6gv" path="res://assets/sounds/sfx/cell_entities/sword/DSGNMisc_MELEE-Bit Sword_HY_PC-004.wav" id="8_vgkfr"]
+[ext_resource type="AudioStream" uid="uid://dyaff0xyjp1we" path="res://assets/sounds/sfx/cell_entities/sword/DSGNMisc_MELEE-Bit Sword_HY_PC-005.wav" id="9_efc5y"]
+[ext_resource type="AudioStream" uid="uid://bemn4fa4logn7" path="res://assets/sounds/sfx/cell_entities/sword/DSGNMisc_MELEE-Bit Sword_HY_PC-006.wav" id="10_ebukw"]
+[ext_resource type="AudioStream" uid="uid://dqwp0aopdyj4f" path="res://assets/sounds/sfx/cell_entities/sword/DSGNMisc_MELEE-Bit Sword_HY_PC-001.wav" id="11_lcodo"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_atdem"]
+streams_count = 6
+stream_0/stream = ExtResource("6_0cwa2")
+stream_1/stream = ExtResource("7_blwtu")
+stream_2/stream = ExtResource("8_vgkfr")
+stream_3/stream = ExtResource("9_efc5y")
+stream_4/stream = ExtResource("10_ebukw")
+stream_5/stream = ExtResource("11_lcodo")
 
 [node name="Sword" type="TextureRect" unique_id=1750750630]
 texture_filter = 1
@@ -20,3 +36,9 @@ max_charge_dist = 12
 resource = ExtResource("3_uvo07")
 tooltip_scene = ExtResource("4_atdem")
 base_rotation = -45.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1928485824 node_paths=PackedStringArray("cell_entity")]
+volume_db = -5.0
+script = ExtResource("5_uvo07")
+cell_entity = NodePath("..")
+enter_active_sounds = SubResource("AudioStreamRandomizer_atdem")
