@@ -4,10 +4,42 @@
 [ext_resource type="FontFile" uid="uid://e0hwiilxyquq" path="res://assets/Iceberg-Regular.ttf" id="1_jaexg"]
 [ext_resource type="FontFile" uid="uid://c5peefpoalxn1" path="res://assets/fonts/PixelifySans-Medium.ttf" id="3_cjwly"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45i86"]
+bg_color = Color(0.24001047, 0.08893349, 0.14759898, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyk2p"]
+bg_color = Color(0.32156864, 0.12941177, 0.20392157, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1p5x"]
+bg_color = Color(0.20842463, 0.073387094, 0.1258457, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjwly"]
+bg_color = Color(0.32096007, 0.12830698, 0.2040998, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [resource]
+Button/styles/hover = SubResource("StyleBoxFlat_45i86")
+Button/styles/normal = SubResource("StyleBoxFlat_kyk2p")
+Button/styles/pressed = SubResource("StyleBoxFlat_f1p5x")
 Control/fonts/font = ExtResource("1_cjwly")
 HeaderLarge/font_sizes/font_size = 28
 HeaderLarge/fonts/font = ExtResource("1_jaexg")
 HeaderSmall/font_sizes/font_size = 28
 Label/fonts/Text = null
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_cjwly")
 RichTextLabel/fonts/normal_font = ExtResource("3_cjwly")

@@ -1,29 +1,65 @@
 [gd_scene format=3 uid="uid://c21von1qssagi"]
 
 [ext_resource type="Theme" uid="uid://c4nhh3lk4ipni" path="res://resources/Theme.tres" id="1_l6cm7"]
-[ext_resource type="Script" uid="uid://cdig1ixhc46cq" path="res://scripts/ui/buttons/load_level_button.gd" id="2_6jbdy"]
-[ext_resource type="PackedScene" uid="uid://b6lpww2tdvfix" path="res://scenes/levels/Level1.tscn" id="3_iwbf0"]
+[ext_resource type="PackedScene" uid="uid://dno3mptgps83t" path="res://scenes/ui/LoadLevelButton.tscn" id="2_6jbdy"]
+[ext_resource type="Texture2D" uid="uid://28vvrycwqvtr" path="res://assets/sprites/explosive_medium.png" id="3_iwbf0"]
+[ext_resource type="PackedScene" uid="uid://bt7ymma44wrn8" path="res://scenes/levels/Level2.tscn" id="4_2ysvc"]
+[ext_resource type="Texture2D" uid="uid://dg6dgvklv3i8g" path="res://assets/sprites/fantasy/tile_0072.png" id="5_xpiny"]
+[ext_resource type="Texture2D" uid="uid://c0rqsn6e1fjxt" path="res://assets/sprites/fantasy/tile_0084.png" id="6_bhu4a"]
+[ext_resource type="PackedScene" uid="uid://dvpusrjl1wn7m" path="res://scenes/levels/Level3.tscn" id="6_e2per"]
 
-[node name="MainMenu" type="Control" unique_id=553133462]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_johg7"]
+bg_color = Color(0.13333334, 0.13725491, 0.13725491, 1)
+
+[node name="MainMenu" type="PanelContainer" unique_id=2140227829]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_johg7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1428795122]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=594250352]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=141873361]
 layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1428795122]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=594250352]
+layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_l6cm7")
 theme_type_variation = &"HeaderLarge"
-text = "guh i dunno its a game sure is prolly"
+theme_override_font_sizes/font_size = 64
+text = "Cor! Send a Fact"
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=427752113]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=169238332]
+custom_minimum_size = Vector2(320, 400)
 layout_mode = 2
-script = ExtResource("2_6jbdy")
-level = ExtResource("3_iwbf0")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Level1" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=827842524 instance=ExtResource("2_6jbdy")]
+layout_mode = 2
+level_text = "Level 1"
+texture = ExtResource("3_iwbf0")
+
+[node name="Level2" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=1767992614 instance=ExtResource("2_6jbdy")]
+layout_mode = 2
+level = ExtResource("4_2ysvc")
+level_text = "Level 2"
+texture = ExtResource("5_xpiny")
+
+[node name="Level3" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=293765082 instance=ExtResource("2_6jbdy")]
+layout_mode = 2
+level = ExtResource("6_e2per")
+level_text = "Level 3"
+texture = ExtResource("6_bhu4a")
+
+[node name="Level4" parent="MarginContainer/VBoxContainer/GridContainer" unique_id=60200777 instance=ExtResource("2_6jbdy")]
+layout_mode = 2

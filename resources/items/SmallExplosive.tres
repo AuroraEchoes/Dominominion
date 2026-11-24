@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dk0jwj2tvygi7"
 
 [resource]
 script = ExtResource("1_r1ir4")
-name = "Small Explosive"
+name = "Sm. Explosive"
 texture = ExtResource("4_q8rnf")
 pickable = true
 atlas_source_id = 1

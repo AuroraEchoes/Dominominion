@@ -2,55 +2,85 @@ class_name CellEntityManager extends Node
 
 signal any_changed
 
+const PLACEABLE_CELL_ATLAS_INDEX: int = 1
+const PLACEABLE_CELL_ATLAS_POSITION: Vector2i = Vector2i(1, 1)
+
 var level: Level
-var cell_entities: Array[CellEntity]
+var cells_entities: Dictionary[Vector2i, CellEntity]
+var pre_razed_terrain_values: Dictionary[Vector2i, PreRazedCellData] = {}
 
 func _init(level: Level) -> void:
 	self.level = level
 	level.simulation_started.connect(_on_simulation_started)
 
 func clear():
-	for entity in cell_entities.duplicate():
-		if entity.resource.pickable:
-			entity.destroy()
+	for cell in cells_entities.keys():
+		if cells_entities[cell].resource.pickable:
+			cells_entities[cell].destroy()
 
 func register(cell_entity: CellEntity) -> void:
-	cell_entities.append(cell_entity)
+	cells_entities.set(cell_entity.cell, cell_entity)
 	cell_entity.cell_changed.connect(_on_cell_changed)
 	any_changed.emit()
 
 func unregister(cell_entity: CellEntity) -> void:
-	var index := cell_entities.find_custom(_cell_entity_is_in_cell.bind(cell_entity.cell))
-	if index != -1:
-		cell_entity.cell_changed.disconnect(_on_cell_changed)
-		cell_entities.remove_at(index)
-	else:
-		print("Tried to unregister a cell which already doesn’t exist?")
+	cell_entity.cell_changed.disconnect(_on_cell_changed)
+	cells_entities.erase(cell_entity.cell)
+	# cell_entities.erase(cell_entity)
 	any_changed.emit()
 
+func change_cell(previous_cell: Vector2i, new_cell: Vector2i):
+	if cells_entities.has(new_cell):
+		print("we're ditching an already existing one here?")
+	cells_entities[new_cell] = cells_entities[previous_cell]
+	cells_entities.erase(previous_cell)
+
 func make_all_cells_dormant():
-	for cell in cell_entities:
-		cell.dormant()
+	for cell in cells_entities:
+		cells_entities[cell].dormant()
+	for cell in pre_razed_terrain_values:
+		level.terrain.set_cell(cell, pre_razed_terrain_values[cell].atlas_id, pre_razed_terrain_values[cell].atlas_cell)
 	any_changed.emit()
 
 func activate_cells(cells: Array[Vector2i]):
 	for cell in cells:
-		var idx := cell_entities.find_custom(_cell_entity_is_in_cell.bind(cell))
-		if idx != -1:
-			var cell_entity := cell_entities[idx]
-			cell_entity.activate()
+		if cells_entities.has(cell):
+			cells_entities[cell].activate()
+		raze_terrain_cell_if_occupied(cell)
+		
 	any_changed.emit()
 
 func is_cell_filled(cell: Vector2i) -> bool:
-	var index := cell_entities.find_custom(_cell_entity_is_in_cell.bind(cell))
-	return index != -1
+	return cells_entities.has(cell)
+
+func raze_terrain_cell_if_occupied(cell: Vector2i):
+	var terrain_data := level.terrain.get_cell_tile_data(cell)
+	var placeable := false
+	if terrain_data != null:
+		placeable = terrain_data.get_custom_data("placeable")
+		if !placeable:
+			var atlas_id := level.terrain.get_cell_source_id(cell)
+			var atlas_cell := level.terrain.get_cell_atlas_coords(cell)
+			pre_razed_terrain_values[cell] = PreRazedCellData.new(atlas_id, atlas_cell)
+			level.terrain.set_cell(cell, PLACEABLE_CELL_ATLAS_INDEX, PLACEABLE_CELL_ATLAS_POSITION)
+	any_changed.emit()
+
 
 func _on_simulation_started():
-	for cell_entity in cell_entities:
-		cell_entity.prime()
-
-func _cell_entity_is_in_cell(cell_entity: CellEntity, cell: Vector2i):
-	return cell_entity.cell == cell
+	for cell in cells_entities:
+		if cells_entities[cell] != null:
+			cells_entities[cell].prime()
+		else:
+			print("removing to be safe but this is a problem")
+			cells_entities.erase(cell)
 
 func _on_cell_changed():
 	any_changed.emit()
+
+class PreRazedCellData:
+	var atlas_id: int
+	var atlas_cell: Vector2i
+
+	func _init(atlas_id: int, atlas_cell: Vector2i) -> void:
+		self.atlas_id = atlas_id
+		self.atlas_cell = atlas_cell

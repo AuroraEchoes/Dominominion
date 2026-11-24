@@ -104,12 +104,15 @@ func click():
 	pass
 
 func move_to_cell(new_cell: Vector2i):
+	var old_cell := cell
 	cell = new_cell
 	var level := manager.level
 	global_position = level.spawned.to_global(level.spawned.map_to_local(cell) - level.spawned.tile_set.tile_size * 0.5)
+	manager.change_cell(old_cell, new_cell)
 	cell_changed.emit()
 
 func destroy():
+	print("destroy called on ", self, " type ", type_string(typeof(self)))
 	manager.unregister(self)
 	manager.level.spawned.erase_cell(cell)
 	queue_free()

@@ -33,6 +33,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if data["source"] == "world":
 		var node := data["node"] as CellEntity
+		print("theoretically dropped node in inventory, destroying")
 		node.destroy()
 		InventoryManager.add_item(data["item"])
 

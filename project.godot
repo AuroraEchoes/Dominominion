@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 LocalLevelManager="*uid://iev6ystwvj67"
 InventoryManager="*uid://3pmh5loar5u"
-ItemManager="*uid://bcm5tf3i8ftb3"
 GameManager="*uid://bvstiso02etit"
+ItemManager="*uid://bcm5tf3i8ftb3"
 
 [debug]
 

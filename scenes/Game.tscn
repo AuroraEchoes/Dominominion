@@ -47,6 +47,35 @@ size_flags_vertical = 6
 mouse_filter = 2
 script = ExtResource("2_g4kob")
 
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/UI" unique_id=2118949553]
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 80.0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("18_45i86")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/MainMenuButton" unique_id=1645839698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/MainMenuButton/MarginContainer" unique_id=1083464443]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("18_kyk2p")
+stretch_mode = 5
+
 [node name="Inventory" type="MarginContainer" parent="CanvasLayer/UI" unique_id=1458954342]
 layout_mode = 1
 anchors_preset = 12

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dno3mptgps83t"]
+
+[ext_resource type="Script" uid="uid://cdig1ixhc46cq" path="res://scripts/ui/buttons/load_level_button.gd" id="1_mslvi"]
+[ext_resource type="PackedScene" uid="uid://b6lpww2tdvfix" path="res://scenes/levels/Level1.tscn" id="2_vogdt"]
+[ext_resource type="Texture2D" uid="uid://0mcysq15ogwg" path="res://assets/sprites/icons/play.png" id="3_ljynb"]
+
+[node name="LevelLoadButton" type="Button" unique_id=827842524 node_paths=PackedStringArray("label", "texture_rect")]
+custom_minimum_size = Vector2(96, 64)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_mslvi")
+level = ExtResource("2_vogdt")
+label = NodePath("MarginContainer/VBoxContainer/Label")
+texture_rect = NodePath("MarginContainer/VBoxContainer/TextureRect")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1009459694]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -56.0
+offset_right = 44.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1263803628]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1339419160]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_ljynb")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1650900521]
+layout_mode = 2
+size_flags_vertical = 8
+theme_type_variation = &"HeaderSmall"
+text = "Level 1"
+horizontal_alignment = 1

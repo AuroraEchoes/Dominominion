@@ -11,10 +11,10 @@ func _ready() -> void:
 
 func _regenerate_targets():
 	all_targets = []
-	for cell_entity in manager.cell_entities:
-		if cell_entity is TargetCellEntity:
-			if !cell_entity.is_eliminated():
-				all_targets.append(cell_entity.cell)
+	for c in manager.cells_entities:
+		if manager.cells_entities[c] is TargetCellEntity:
+			if !manager.cells_entities[c].is_eliminated():
+				all_targets.append(c)
 
 func hover_started():
 	highlight = manager.level.cell_highlighter.create_highlight_group(all_targets, CellHighlighter.HighlightType.POSITIVE)
