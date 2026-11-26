@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://e0hwiilxyquq"
-path="res://.godot/imported/Iceberg-Regular.ttf-e6e1ed2228ab958446681e8d7077324b.fontdata"
+path="res://.godot/imported/Iceberg-Regular.ttf-cc51d786437d08cdb23c888fe7382c17.fontdata"
 
 [deps]
 
-source_file="res://assets/Iceberg-Regular.ttf"
-dest_files=["res://.godot/imported/Iceberg-Regular.ttf-e6e1ed2228ab958446681e8d7077324b.fontdata"]
+source_file="res://assets/fonts/Iceberg-Regular.ttf"
+dest_files=["res://.godot/imported/Iceberg-Regular.ttf-cc51d786437d08cdb23c888fe7382c17.fontdata"]
 
 [params]
 

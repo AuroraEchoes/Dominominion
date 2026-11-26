@@ -145,7 +145,6 @@ mouse_filter = 2
 layout_mode = 2
 theme = ExtResource("5_mcffj")
 theme_type_variation = &"HeaderSmall"
-theme_override_font_sizes/font_size = 32
 text = "Treasure Gathered: (n/n)"
 horizontal_alignment = 1
 script = ExtResource("6_2rd6h")

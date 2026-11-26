@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://12h4qgnbf7an" path="res://assets/sprites/explosive_OLD.png" id="2_un6ge"]
 
 [node name="InventoryItem" type="VBoxContainer" unique_id=1224420695 node_paths=PackedStringArray("item_name_label", "item_texture_rect")]
-custom_minimum_size = Vector2(138, 0)
-custom_maximum_size = Vector2(138, -1)
+custom_minimum_size = Vector2(168, 0)
+custom_maximum_size = Vector2(168, -1)
 script = ExtResource("1_rqsw5")
 item_name_label = NodePath("Label")
 item_texture_rect = NodePath("TextureRect")
@@ -21,7 +21,7 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="." unique_id=1753253591]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "Small Explosive (2)"
+theme_override_font_sizes/font_size = 22
+text = "Sm.  Explosive (2)"
 horizontal_alignment = 1
 autowrap_mode = 2
