@@ -23,6 +23,7 @@ enum State {
 @export var tooltip_scene: PackedScene
 @export var base_rotation: float
 @export var base_direction: Vector2i = Vector2i.UP
+@export var rotation_time: float = 0.1
 
 var cell: Vector2i
 var state: State = State.DORMANT
@@ -30,6 +31,7 @@ var manager: CellEntityManager
 var hovered: bool = false
 var direction: Vector2i
 var cell_highlight_group: CellHighlighter.HighlightGroup
+var active_rotation_tween: Tween
 
 func _ready() -> void:
 	var level = LocalLevelManager.get_active_level()
@@ -160,12 +162,23 @@ func rotate_direction():
 		direction = Vector2i.RIGHT
 	else:
 		direction = Vector2i.UP
-	var angle = -Vector2(direction).angle_to(Vector2.UP) + deg_to_rad(base_rotation)
-	offset_transform_rotation = angle
+	_tween_rotate_direction()
 	direction_changed.emit()
 	if hovered:
 		highlight_affected_cells(CellHighlighter.HighlightType.INFO)
 
+func _tween_rotate_direction() -> void:
+	if active_rotation_tween != null:
+		active_rotation_tween.kill()
+		active_rotation_tween = null
+	var angle = -Vector2(direction).angle_to(Vector2.UP) + deg_to_rad(base_rotation)
+	active_rotation_tween = create_tween()
+	var bound_callable := _tween_rotate_direction_method.bind(offset_transform_rotation, angle)
+	active_rotation_tween.tween_method(bound_callable, 0.0, 1.0, rotation_time)
+	# active_rotation_tween.tween_property(self, "offset_transform_rotation", angle, rotation_time)
+
+func _tween_rotate_direction_method(completion: float, start_angle: float, end_angle: float) -> void:
+	offset_transform_rotation = lerp_angle(start_angle, end_angle, completion)
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if !resource.pickable || manager.level.state != Level.LevelState.DORMANT:
@@ -186,7 +199,6 @@ func _notification(what: int) -> void:
 func _on_mouse_entered():
 	hovered = true
 	hover_started()
-	pass
 
 func _on_mouse_exited():
 	hovered = false
@@ -203,7 +215,7 @@ func _make_custom_tooltip(for_text: String) -> Object:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton && hovered:
 		var mouse_event := event as InputEventMouseButton
-		if mouse_event.button_index == MOUSE_BUTTON_RIGHT && mouse_event.pressed:
+		if mouse_event.button_index == MOUSE_BUTTON_RIGHT && mouse_event.pressed && resource.pickable:
 			rotate_direction()
 		else:
 			click()
