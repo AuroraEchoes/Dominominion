@@ -99,7 +99,7 @@ func clear_cell_highlight_group() -> void:
 func highlight_affected_cells(type: CellHighlighter.HighlightType) -> void:
 	var cells := get_affected_cells()
 	clear_cell_highlight_group()
-	cell_highlight_group = manager.level.cell_highlighter.create_highlight_group(cells, CellHighlighter.HighlightType.INFO)
+	cell_highlight_group = manager.level.cell_highlighter.create_highlight_group(cells, type)
 
 func enter_dormant():
 	pass
