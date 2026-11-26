@@ -1,7 +1,7 @@
 shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
-uniform vec3 offsets = vec3(0.002, -0.002, 0.001);
+uniform vec3 offsets = vec3(0.001, -0.001, 0.0005);
 uniform vec2 direction = vec2(0.5, -0.5);
 uniform float vingette_strength = 0.98;
 uniform float brighten_amount = 0.00;

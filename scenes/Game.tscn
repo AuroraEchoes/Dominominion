@@ -98,6 +98,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -106,6 +107,7 @@ theme_override_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Inventory" unique_id=644267923]
 layout_mode = 2
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="TreasureGathered" type="Label" parent="CanvasLayer/UI/Inventory/VBoxContainer" unique_id=1345094659]
 layout_mode = 2
@@ -124,8 +126,8 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_qy1jj")
-container = NodePath("MarginContainer/HBoxContainer")
 inventory_slot_scene = ExtResource("4_400sg")
+container = NodePath("MarginContainer/HBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/InventoryPanel" unique_id=1444527231]
 layout_mode = 2
