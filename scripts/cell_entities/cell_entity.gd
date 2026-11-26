@@ -29,9 +29,10 @@ var state: State = State.DORMANT
 var manager: CellEntityManager
 var hovered: bool = false
 var direction: Vector2i
+var cell_highlight_group: CellHighlighter.HighlightGroup
 
 func _ready() -> void:
-	var level := LocalLevelManager.get_active_level()
+	var level = LocalLevelManager.get_active_level()
 	cell = level.spawned.local_to_map(level.spawned.to_local(global_position))
 	cell_changed.emit()
 	manager = level.cell_entity_manager
@@ -87,6 +88,19 @@ func dormant():
 	enter_dormant()
 	entered_dormant.emit()
 
+func get_affected_cells() -> Array[Vector2i]:
+	return []
+
+func clear_cell_highlight_group() -> void:
+	if cell_highlight_group != null:
+		cell_highlight_group.destroy()
+		cell_highlight_group = null
+
+func highlight_affected_cells(type: CellHighlighter.HighlightType) -> void:
+	var cells := get_affected_cells()
+	clear_cell_highlight_group()
+	cell_highlight_group = manager.level.cell_highlighter.create_highlight_group(cells, CellHighlighter.HighlightType.INFO)
+
 func enter_dormant():
 	pass
 
@@ -112,10 +126,10 @@ func exit_expired():
 	pass
 
 func hover_started():
-	pass
+	highlight_affected_cells(CellHighlighter.HighlightType.INFO)
 
 func hover_ended():
-	pass
+	clear_cell_highlight_group()
 
 func selected():
 	pass
@@ -149,6 +163,9 @@ func rotate_direction():
 	var angle = -Vector2(direction).angle_to(Vector2.UP) + deg_to_rad(base_rotation)
 	offset_transform_rotation = angle
 	direction_changed.emit()
+	if hovered:
+		highlight_affected_cells(CellHighlighter.HighlightType.INFO)
+
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if !resource.pickable || manager.level.state != Level.LevelState.DORMANT:
