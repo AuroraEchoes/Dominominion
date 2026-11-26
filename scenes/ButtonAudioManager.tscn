@@ -21,6 +21,7 @@ stream = SubResource("AudioStreamPolyphonic_h0fa6")
 volume_db = -5.0
 pitch_scale = 0.75
 max_polyphony = 8
+bus = &"Sound"
 playback_type = 1
 script = ExtResource("1_hxnj3")
 button_press_sounds = Array[AudioStream]([ExtResource("2_mep7p"), ExtResource("3_1ckcx"), ExtResource("4_vxg1d"), ExtResource("5_jj5q4"), ExtResource("6_od55y"), ExtResource("7_niaqh")])

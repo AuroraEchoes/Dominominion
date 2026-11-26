@@ -39,6 +39,7 @@ base_rotation = -45.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1928485824 node_paths=PackedStringArray("cell_entity")]
 volume_db = -5.0
+bus = &"Sound"
 script = ExtResource("5_uvo07")
 cell_entity = NodePath("..")
 enter_active_sounds = SubResource("AudioStreamRandomizer_atdem")

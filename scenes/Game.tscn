@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://m7ndlx86gm3x" path="res://scripts/ui/inventory_ui_manager.gd" id="3_qy1jj"]
 [ext_resource type="Shader" uid="uid://b8kvc28jgoutv" path="res://resources/shaders/post_processing.gdshader" id="4_45i86"]
 [ext_resource type="PackedScene" uid="uid://bhlrfqu80gk26" path="res://scenes/ui/InventoryItem.tscn" id="4_400sg"]
+[ext_resource type="Texture2D" uid="uid://137sbtvvtjhs" path="res://assets/sprites/icons/cog.png" id="4_a8wo8"]
+[ext_resource type="Script" uid="uid://bdyak8fdj5m0q" path="res://scripts/ui/buttons/settings_button.gd" id="4_attvq"]
 [ext_resource type="Theme" uid="uid://c4nhh3lk4ipni" path="res://resources/Theme.tres" id="5_mcffj"]
 [ext_resource type="Script" uid="uid://e3a772matugp" path="res://scripts/ui/targets_eliminated_label.gd" id="6_2rd6h"]
 [ext_resource type="Texture2D" uid="uid://b6plc04j8pm4o" path="res://assets/sprites/icons/delete.png" id="7_3xj3m"]
@@ -19,6 +21,7 @@
 [ext_resource type="Script" uid="uid://uni635rnn75q" path="res://scripts/ui/level_succeeded_panel.gd" id="17_vjgi4"]
 [ext_resource type="Script" uid="uid://b8hun3vdh813" path="res://scripts/ui/buttons/main_menu_button.gd" id="18_45i86"]
 [ext_resource type="Texture2D" uid="uid://om4eqvhpau2e" path="res://assets/sprites/icons/menu.png" id="18_kyk2p"]
+[ext_resource type="PackedScene" uid="uid://cass756etwtnx" path="res://scenes/ui/SettingsPanel.tscn" id="19_sv1m6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_45i86"]
 shader = ExtResource("4_45i86")
@@ -55,18 +58,21 @@ size_flags_vertical = 6
 mouse_filter = 2
 script = ExtResource("2_g4kob")
 
-[node name="MainMenuButton" type="Button" parent="CanvasLayer/UI" unique_id=2118949553]
-custom_minimum_size = Vector2(96, 64)
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI" unique_id=466570371]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 112.0
-offset_bottom = 80.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 72.0
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/UI/Buttons" unique_id=2118949553]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("18_45i86")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/MainMenuButton" unique_id=1645839698]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Buttons/MainMenuButton" unique_id=1645839698]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,10 +84,36 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/MainMenuButton/MarginContainer" unique_id=1083464443]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Buttons/MainMenuButton/MarginContainer" unique_id=1083464443]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("18_kyk2p")
+stretch_mode = 5
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/UI/Buttons" unique_id=1137733340 node_paths=PackedStringArray("settings_panel")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("4_attvq")
+settings_panel = NodePath("../../SettingsPanel")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Buttons/SettingsButton" unique_id=783735289]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Buttons/SettingsButton/MarginContainer" unique_id=220452965]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_a8wo8")
 stretch_mode = 5
 
 [node name="Inventory" type="MarginContainer" parent="CanvasLayer/UI" unique_id=1458954342]
@@ -126,8 +158,8 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_qy1jj")
-inventory_slot_scene = ExtResource("4_400sg")
 container = NodePath("MarginContainer/HBoxContainer")
+inventory_slot_scene = ExtResource("4_400sg")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI/Inventory/VBoxContainer/LowerPanel/InventoryPanel" unique_id=1444527231]
 layout_mode = 2
@@ -385,6 +417,21 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("18_kyk2p")
 stretch_mode = 5
+
+[node name="SettingsPanel" parent="CanvasLayer/UI" unique_id=1136808395 instance=ExtResource("19_sv1m6")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -189.0
+offset_right = 225.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PostProcessing" type="ColorRect" parent="CanvasLayer/UI" unique_id=879660881]
 material = SubResource("ShaderMaterial_45i86")

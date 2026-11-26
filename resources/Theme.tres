@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://c8e3ixn3hpywg" path="res://assets/fonts/PixelifySans-Bold.ttf" id="1_cjwly"]
 [ext_resource type="FontFile" uid="uid://e0hwiilxyquq" path="res://assets/Iceberg-Regular.ttf" id="1_jaexg"]
+[ext_resource type="Texture2D" uid="uid://cra7ops2waw8b" path="res://assets/sprites/icons/knob.png" id="2_f1p5x"]
 [ext_resource type="FontFile" uid="uid://c5peefpoalxn1" path="res://assets/fonts/PixelifySans-Medium.ttf" id="3_cjwly"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45i86"]
@@ -25,6 +26,34 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcyaj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.279836, 0.28654012, 0.28653964, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khfr8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+border_color = Color(0.5587682, 0.56705797, 0.56705654, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig1n5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.13333334, 0.13725491, 0.13725491, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjwly"]
 bg_color = Color(0.32096007, 0.12830698, 0.2040998, 1)
 corner_radius_top_left = 16
@@ -37,6 +66,12 @@ Button/styles/hover = SubResource("StyleBoxFlat_45i86")
 Button/styles/normal = SubResource("StyleBoxFlat_kyk2p")
 Button/styles/pressed = SubResource("StyleBoxFlat_f1p5x")
 Control/fonts/font = ExtResource("1_cjwly")
+HSlider/icons/grabber = ExtResource("2_f1p5x")
+HSlider/icons/grabber_disabled = ExtResource("2_f1p5x")
+HSlider/icons/grabber_highlight = ExtResource("2_f1p5x")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_xcyaj")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_khfr8")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ig1n5")
 HeaderLarge/font_sizes/font_size = 28
 HeaderLarge/fonts/font = ExtResource("1_jaexg")
 HeaderSmall/font_sizes/font_size = 28

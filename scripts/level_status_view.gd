@@ -22,7 +22,7 @@ func on_click(screen: Vector2):
 	var local := local_camera_pos(screen)
 	var cell := local_to_map(local)
 	
-	var item_idx := level.get_spawned_item_index_at_cell(cell)
+	var item_idx = level.get_spawned_item_index_at_cell(cell)
 	if current_selected_cell != null:
 		hide_item_visualisation(current_selected_cell)
 		current_selected_cell = null

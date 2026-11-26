@@ -37,6 +37,7 @@ tooltip_scene = ExtResource("4_v7w6g")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1979699150 node_paths=PackedStringArray("cell_entity")]
 volume_db = -8.0
 pitch_scale = 1.5
+bus = &"Sound"
 script = ExtResource("5_kitgg")
 cell_entity = NodePath("..")
 exit_active_sounds = SubResource("AudioStreamRandomizer_5yn56")

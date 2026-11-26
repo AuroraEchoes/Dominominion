@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://27vyj6krx6kc" path="res://assets/sprites/fantasy/tile_0095.png" id="8_7mi0g"]
 [ext_resource type="PackedScene" uid="uid://qvt26ynnuffe" path="res://scenes/levels/Level4.tscn" id="8_nqjyj"]
 [ext_resource type="Shader" uid="uid://b8kvc28jgoutv" path="res://resources/shaders/post_processing.gdshader" id="10_7vr37"]
+[ext_resource type="Script" uid="uid://bdyak8fdj5m0q" path="res://scripts/ui/buttons/settings_button.gd" id="10_ff4wq"]
+[ext_resource type="Texture2D" uid="uid://137sbtvvtjhs" path="res://assets/sprites/icons/cog.png" id="10_kncl5"]
+[ext_resource type="PackedScene" uid="uid://cass756etwtnx" path="res://scenes/ui/SettingsPanel.tscn" id="12_ee60a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_johg7"]
 bg_color = Color(0.13333334, 0.13725491, 0.13725491, 1)
@@ -76,6 +79,48 @@ layout_mode = 2
 level = ExtResource("8_nqjyj")
 level_text = "Level 4"
 texture = ExtResource("8_7mi0g")
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=295787100 node_paths=PackedStringArray("settings_panel")]
+custom_minimum_size = Vector2(320, 64)
+custom_maximum_size = Vector2(320, -1)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("10_ff4wq")
+settings_panel = NodePath("../../../SettingsPanel")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/SettingsButton" unique_id=1009459694]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -56.0
+offset_right = 44.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/SettingsButton/MarginContainer" unique_id=1339419160]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_kncl5")
+stretch_mode = 5
+
+[node name="SettingsPanel" parent="." unique_id=1136808395 instance=ExtResource("12_ee60a")]
+visible = false
+layout_mode = 2
 
 [node name="PostProcessing" type="ColorRect" parent="." unique_id=1898168280]
 material = SubResource("ShaderMaterial_kncl5")
